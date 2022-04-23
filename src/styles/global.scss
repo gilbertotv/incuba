@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: "BentonSans";
+	src: url("fonts/BentonSans/BentonSans-Regular.ttf");
+}
+
+@font-face {
+	font-family: "BentonSans300";
+	src: url("fonts/BentonSans/BentonSans-Light.ttf");
+}
+
+@font-face {
+	font-family: "BentonSans700";
+	src: url("fonts/BentonSans/BentonSans-Bold.ttf");
+}
+
+body {
+	font-family: "BentonSans";
+}
+
+[contenteditable="true"]:empty:before {
+	content: attr(placeholder);
+	display: block;
+	color: #686868;
+}

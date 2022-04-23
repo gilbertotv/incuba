@@ -22,7 +22,7 @@ const Option = ({
 				to={linkAnchor}
 				title={text}
 				onAnchorLinkClick={() => onClick(false)}
-				className="cursor-pointer hover:font-medium"
+				className="cursor-pointer hover:font-benton400"
 			/>
 		</li>
 	) : link ? (
@@ -30,13 +30,13 @@ const Option = ({
 			<Link
 				to={link}
 				onClick={() => onClick(false)}
-				className="cursor-pointer hover:font-medium"
+				className="cursor-pointer hover:font-benton400"
 			>
 				{text}
 			</Link>
 		</li>
 	) : (
-		<li className="cursor-pointer hover:font-medium py-4 sm:py-0">
+		<li className="cursor-pointer hover:font-benton400 py-4 sm:py-0">
 			{text}
 		</li>
 	);
@@ -47,12 +47,12 @@ const Menu = () => {
 		<>
 			<HamburgerMenu />
 			<nav
-				className={`w-screen h-screen absolute sm:fixed top-0 left-0 z-30 transition duration-500 ease-in-out bg-white ${
+				className={`w-screen h-screen fixed top-0 left-0 z-30 transition duration-500 ease-in-out bg-white ${
 					menuOpen ? "visible opacity-1" : "invisible opacity-0"
 				}`}
 			>
 				<div className="flex h-full items-center justify-center justify-center text-left">
-					<ul className="flex flex-col sm:justify-between sm:h-full sm:p-24 p-12 text-darkgray1 font-light text-3xl">
+					<ul className="flex flex-col sm:justify-between sm:h-full sm:p-24 p-12 text-darkgray1 text-3xl font-benton300">
 						<Option
 							text="Inicio"
 							onClick={() => setMenuOpen(false)}
