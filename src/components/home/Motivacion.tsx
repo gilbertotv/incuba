@@ -43,12 +43,12 @@ const Motivacion = ({ id }) => {
 									<img
 										alt="Incuba ONG"
 										src={Img5}
-										className={`absolute w-72 left-1/2 -translate-x-1/2 bottom-8 -ml-4 bottom-40 z-20`}
+										className={`absolute w-72 left-1/2 -translate-x-1/2 bottom-8 -ml-4 z-20`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img6}
-										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-4 ml-4 bottom-40 `}
+										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-4 ml-4 `}
 									/>
 								</div>
 							</div>

@@ -1,4 +1,5 @@
 import React from "react";
+import {navigate} from "gatsby"
 import Section from "../layout/Section";
 import Button from "../shared/Button";
 
@@ -70,7 +71,7 @@ const Home = () => {
 						Somos un equipo de personas que busca contribuir al fortalecimiento
 						del espacio cívico local en México.
 					</p>
-					<Button text="Conócenos" variant="orange" />
+					<Button text="Conócenos" variant="orange" action={()=>navigate("/nosotras")} />
 				</div>
 			</div>
 		</Section>

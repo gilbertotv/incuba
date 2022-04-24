@@ -1,4 +1,5 @@
 import React from "react";
+import { navigate } from "gatsby";
 import Layout from "../components/layout/Layout";
 import Button from "../components/shared/Button";
 
@@ -169,15 +170,24 @@ const Incubadora = () => {
 							La incubadora consta de 10 módulos.
 						</p>
 						<div className="w-full grid sm:grid-cols-3 md:grid-cols-4 my-16">
-							{modulos.map((mod) => (
-								<Modulo ilus={mod.img} text1={mod.text1} text2={mod.text2} />
+							{modulos.map((mod, i) => (
+								<Modulo
+									key={`${i}${mod.text1}`}
+									ilus={mod.img}
+									text1={mod.text1}
+									text2={mod.text2}
+								/>
 							))}
 						</div>
 						<p className="md:w-2/3 text-xl sm:text-4xl mb-16">
 							Únete a nuestra Red Semilla para ayudar al desarrollo comunitario
 							de México.
 						</p>
-						<Button text="Dona ahora" variant="orange" />
+						<Button
+							text="Dona ahora"
+							variant="orange"
+							action={() => navigate("/dona")}
+						/>
 					</div>
 				</div>
 			</div>

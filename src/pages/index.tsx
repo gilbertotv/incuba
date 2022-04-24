@@ -31,7 +31,7 @@ const IndexPage = () => {
 					subtitle="Patrocinio ﬁscal"
 					content="Con el programa de Patrocinio Fiscal brindamos la estructura institucional de Incuba a iniciativas comunitarias de alto impacto, que están diseñadas para el cumplimiento de objetivos específicos, acotados en el tiempo."
 					button="Conoce más"
-					action={() => navigate("/incubadora")}
+					action={() => navigate("/estrategias")}
 				/>
 				<SectionEstrategia
 					className="bg-beige1"
@@ -39,7 +39,7 @@ const IndexPage = () => {
 					subtitle="Investigación"
 					content="Realizamos investigaciones y análisis del contexto social, con la finalidad de brindar información útil para el desarrollo proactivo del tercer sector en México."
 					button="Conoce más"
-					action={() => navigate("/incubadora")}
+					action={() => navigate("/investigacion")}
 				/>
 			</div>
 			<Convocatoria id="convocatoria" />
