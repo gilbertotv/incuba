@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import Section from "../layout/Section";
 import Button from "../shared/Button";
 
-const Contacto = () => {
+const Contacto = ({ id }) => {
 	const [form, setForm] = useState({ name: "", email: "" });
 	const [errorFormName, setErrorFormName] = useState("");
 	const [errorFormMail, setErrorFormMail] = useState("");
@@ -70,7 +70,7 @@ const Contacto = () => {
 		}
 	};
 	return (
-		<Section className="bg-white">
+		<Section id={id} className="bg-white">
 			<p className="text-darkgray1 text-xl sm:text-3xl font-benton300 mb-4 mt-12 md:mt-0">
 				¿Quieres saber más sobre Incuba ONG?
 			</p>

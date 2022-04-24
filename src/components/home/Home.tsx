@@ -8,9 +8,9 @@ import Img3 from "../../images/home/ilus1/ilus3.svg";
 import Img4 from "../../images/home/ilus1/ilus4.svg";
 import Img5 from "../../images/home/ilus1/ilus5.svg";
 
-const Home = () => {
+const Home = ({id}) => {
 	return (
-		<Section className="bg-beige1">
+		<Section id={id} className="bg-beige1">
 			<div className="flex flex-col sm:flex-row mt-32 sm:mt-0">
 				<div className="sm:w-1/2 sm:order-2 sm:h-auto">
 					<div className="flex h-full items-center">
@@ -40,7 +40,7 @@ const Home = () => {
 									<img
 										alt="Incuba ONG"
 										src={Img5}
-										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-4 ml-4 bottom-40 `}
+										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-4 ml-4 `}
 									/>
 								</div>
 							</div>

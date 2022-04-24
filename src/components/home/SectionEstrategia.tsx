@@ -2,7 +2,14 @@ import React from "react";
 import Button from "../shared/Button";
 import Section from "../layout/Section";
 
-const SectionEstrategia = ({ className, title, subtitle, content, button }) => {
+const SectionEstrategia = ({
+	className,
+	title,
+	subtitle,
+	content,
+	button,
+	action,
+}) => {
 	return (
 		<Section className={`${className}`}>
 			<div className="flex flex-col md:flex-row my-12 md:my-0">
@@ -16,7 +23,7 @@ const SectionEstrategia = ({ className, title, subtitle, content, button }) => {
 				</div>
 				<div className="md:w-3/5 md:pl-16">
 					<p className="text-xl text-darkgray1 sm:text-4xl mb-8">{content}</p>
-					<Button text={button} variant="orange" />
+					<Button text={button} variant="orange" action={action} />
 				</div>
 			</div>
 		</Section>

@@ -55,27 +55,27 @@ const Menu = () => {
 					<ul className="flex flex-col sm:justify-between sm:h-full sm:p-24 p-12 text-darkgray1 text-3xl font-benton300">
 						<Option
 							text="Inicio"
-							onClick={() => setMenuOpen(false)}
 							linkAnchor="/#inicio"
+							onClick={() => setMenuOpen(false)}
 						/>
 						<Option
 							text="Motivación"
-							link="/articulos"
+							linkAnchor="/#motivacion"
 							onClick={() => setMenuOpen(false)}
 						/>
 						<Option
 							text="Resultados"
+							linkAnchor="/#resultados"
 							onClick={() => setMenuOpen(false)}
-							linkAnchor="/#autorxs"
 						/>
 						<Option
 							text="Herramientas"
-							link="/recursos"
+							linkAnchor="/#herramientas"
 							onClick={() => setMenuOpen(false)}
 						/>
 						<Option
 							text="Convocatoria"
-							link="/reflexiones"
+							link="/#convocatoria"
 							onClick={() => setMenuOpen(false)}
 						/>
 						<Option

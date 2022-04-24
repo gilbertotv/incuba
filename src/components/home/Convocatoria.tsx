@@ -18,9 +18,9 @@ import ImgAl5 from "../../images/home/organizaciones/al5.svg";
 import ImgAl6 from "../../images/home/organizaciones/al6.svg";
 import ImgAl7 from "../../images/home/organizaciones/al7.svg";
 
-const Convocatoria = ({}) => {
+const Convocatoria = ({ id }) => {
 	return (
-		<Section className="bg-white sm:pt-32">
+		<Section id={id} className="bg-white sm:pt-32">
 			<div className="flex flex-col sm:flex-row mt-12 sm:mt-0">
 				<div className="sm:w-2/5">
 					<p className="text-xl text-orange1 sm:text-3xl sm:-mt-24 mb-8">
@@ -40,28 +40,60 @@ const Convocatoria = ({}) => {
 			</p>
 			<div className="flex grid grid-cols-3 sm:grid-cols-8 mb-8">
 				<div>
-					<img src={Img1} className="m-auto mb-4 sm:mb-0" alt="Incuba Organización" />
+					<img
+						src={Img1}
+						className="m-auto mb-4 sm:mb-0"
+						alt="Incuba Organización"
+					/>
 				</div>
 				<div>
-					<img src={Img2} className="m-auto mb-4 sm:mb-0" alt="Incuba Organización" />
+					<img
+						src={Img2}
+						className="m-auto mb-4 sm:mb-0"
+						alt="Incuba Organización"
+					/>
 				</div>
 				<div>
-					<img src={Img3} className="m-auto mb-4 sm:mb-0" alt="Incuba Organización" />
+					<img
+						src={Img3}
+						className="m-auto mb-4 sm:mb-0"
+						alt="Incuba Organización"
+					/>
 				</div>
 				<div>
-					<img src={Img4} className="m-auto mb-4 sm:mb-0" alt="Incuba Organización" />
+					<img
+						src={Img4}
+						className="m-auto mb-4 sm:mb-0"
+						alt="Incuba Organización"
+					/>
 				</div>
 				<div>
-					<img src={Img5} className="m-auto mb-4 sm:mb-0" alt="Incuba Organización" />
+					<img
+						src={Img5}
+						className="m-auto mb-4 sm:mb-0"
+						alt="Incuba Organización"
+					/>
 				</div>
 				<div>
-					<img src={Img6} className="m-auto mb-4 sm:mb-0" alt="Incuba Organización" />
+					<img
+						src={Img6}
+						className="m-auto mb-4 sm:mb-0"
+						alt="Incuba Organización"
+					/>
 				</div>
 				<div>
-					<img src={Img7} className="m-auto mb-4 sm:mb-0" alt="Incuba Organización" />
+					<img
+						src={Img7}
+						className="m-auto mb-4 sm:mb-0"
+						alt="Incuba Organización"
+					/>
 				</div>
 				<div>
-					<img src={Img8} className="m-auto mb-4 sm:mb-0" alt="Incuba Organización" />
+					<img
+						src={Img8}
+						className="m-auto mb-4 sm:mb-0"
+						alt="Incuba Organización"
+					/>
 				</div>
 			</div>
 			<p className="text-xl text-darkgray1 font-benton700 sm:text-3xl mb-8">

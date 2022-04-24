@@ -8,9 +8,9 @@ import Img4 from "../../images/home/ilus2/ilus4.svg";
 import Img5 from "../../images/home/ilus2/ilus5.svg";
 import Img6 from "../../images/home/ilus2/ilus6.svg";
 
-const Motivacion = () => {
+const Motivacion = ({ id }) => {
 	return (
-		<Section className="bg-white">
+		<Section id="motivacion" className="bg-white">
 			<div className="flex flex-col md:flex-row mt-12 md:mt-0">
 				<div className="md:w-1/2 md:order-2 sm:h-auto">
 					<p className="text-2xl font-benton700 text-orange1 mb-8 block md:hidden">
