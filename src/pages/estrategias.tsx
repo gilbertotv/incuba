@@ -15,7 +15,7 @@ const Incubadora = () => {
 			<div className="w-screen">
 				<div className="container">
 					<p className="text-xl text-orange1 font-benton700 sm:text-3xl mb-8 md:mb-16 mt-28 sm:mt-32">
-						Estrategias de intervención
+						Estrategias de intervención
 						<br />
 						Patrocinio fiscal
 					</p>
@@ -71,18 +71,18 @@ const Incubadora = () => {
 						</p>
 						<p className="mt-4">
 							Sin embargo, requieren una estructura legal-fiscal, una
-							procuración de fondos sólida y evaluaciones que demuestren que
-							cuentan con la capacidad técnica, operativa y administrativa para
-							la operación de sus iniciativas sociales.
+							procuración de fondos sólida y evaluaciones que demuestren que
+							cuentan con la capacidad técnica, operativa y administrativa para
+							la operación de sus iniciativas sociales.
 						</p>
 						<p className="mt-4">
 							Es por eso, que ofrecemos el servicio de patrocinio fiscal, bajo
 							el cual brindamos la estructura institucional de Incuba a
-							iniciativas comunitarias de alto impacto, que están diseñadas para
-							el cumplimiento de objetivos específicos y acotados en el tiempo.
-							Así permitimos que la organización o el colectivo pueda
+							iniciativas comunitarias de alto impacto, que están diseñadas para
+							el cumplimiento de objetivos específicos y acotados en el tiempo.
+							Así permitimos que la organización o el colectivo pueda
 							implementar su proyecto, sin necesidad de conformar una
-							organización formal, mientras Incuba se ocupa de lo demás.
+							organización formal, mientras Incuba se ocupa de lo demás.
 						</p>
 					</div>
 				</div>

@@ -167,7 +167,7 @@ const Contacto = ({ id }) => {
 					<br />
 					Del Valle Centro,
 					<br />
-					Ciudad de México.
+					Ciudad de México.
 					<br />
 					T. 5592083489
 					<br />

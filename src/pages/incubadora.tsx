@@ -51,7 +51,7 @@ const Incubadora = () => {
 		{
 			img: Mod1,
 			text1: "Módulo 1",
-			text2: "Diagnóstico de fortalecimiento institucional",
+			text2: "Diagnóstico de fortalecimiento institucional",
 		},
 		{
 			img: Mod2,
@@ -61,42 +61,42 @@ const Incubadora = () => {
 		{
 			img: Mod3,
 			text1: "Módulo 3",
-			text2: "Planeación estratégica",
+			text2: "Planeación estratégica",
 		},
 		{
 			img: Mod4,
 			text1: "Módulo 4",
-			text2: "Metodología de intervención",
+			text2: "Metodología de intervención",
 		},
 		{
 			img: Mod5,
 			text1: "Módulo 5",
-			text2: "Planeación financiera",
+			text2: "Planeación financiera",
 		},
 		{
 			img: Mod6,
 			text1: "Módulo 6",
-			text2: "Estrategia de procuración de fondos",
+			text2: "Estrategia de procuración de fondos",
 		},
 		{
 			img: Mod7,
 			text1: "Módulo 7",
-			text2: "Comunicación estratégica",
+			text2: "Comunicación estratégica",
 		},
 		{
 			img: Mod8,
 			text1: "Módulo 8",
-			text2: "Gestión de recursos humanos",
+			text2: "Gestión de recursos humanos",
 		},
 		{
 			img: Mod9,
 			text1: "Módulo 9",
-			text2: "Monitoreo y evaluación",
+			text2: "Monitoreo y evaluación",
 		},
 		{
 			img: Mod10,
 			text1: "Módulo 10",
-			text2: "Planeación operativa",
+			text2: "Planeación operativa",
 		},
 	];
 	return (
@@ -180,8 +180,8 @@ const Incubadora = () => {
 							))}
 						</div>
 						<p className="md:w-2/3 text-xl sm:text-4xl mb-16">
-							Únete a nuestra Red Semilla para ayudar al desarrollo comunitario
-							de México.
+							Únete a nuestra Red Semilla para ayudar al desarrollo comunitario
+							de México.
 						</p>
 						<Button
 							text="Dona ahora"
