@@ -8,9 +8,9 @@ import Img4 from "../../images/home/ilus2/ilus4.svg";
 import Img5 from "../../images/home/ilus2/ilus5.svg";
 import Img6 from "../../images/home/ilus2/ilus6.svg";
 
-const Motivacion = ({ id }) => {
+const Motivacion = ({ id, intersected }) => {
 	return (
-		<Section id="motivacion" className="bg-white">
+		<Section id={id} className="bg-white">
 			<div className="flex flex-col md:flex-row mt-12 md:mt-0">
 				<div className="md:w-1/2 md:order-2 sm:h-auto">
 					<p className="text-2xl font-benton700 text-orange1 mb-8 block md:hidden">
@@ -28,22 +28,30 @@ const Motivacion = ({ id }) => {
 									<img
 										alt="Incuba ONG"
 										src={Img2}
-										className={`absolute w-96 left-1/2 -translate-x-1/2 bottom-0 z-20`}
+										className={`absolute w-96 left-1/2 -translate-x-1/2 bottom-0 z-20 transition-all duration-1000 ease-in-out ${
+											intersected ? "opacity-100" : "scale-x-0 opacity-0"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img3}
-										className={`absolute h-96 left-1/2 -translate-x-1/2 -bottom-4 z-10`}
+										className={`absolute h-96 left-1/2 -translate-x-1/2 -bottom-4 z-10 transition-all duration-1000 ease-in-out ${
+											intersected ? "opacity-100" : "opacity-0"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img4}
-										className={`absolute w-80 left-1/2 -translate-x-1/2 bottom-4 -ml-4 z-0`}
+										className={`absolute w-80 left-1/2 -translate-x-1/2 bottom-4 -ml-4 z-0 transition-all delay-500 duration-1000 ease-in-out ${
+											intersected ? "opacity-100" : "opacity-0"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img5}
-										className={`absolute w-72 left-1/2 -translate-x-1/2 bottom-8 -ml-4 z-20`}
+										className={`absolute w-72 left-1/2 -translate-x-1/2 -ml-4 z-20 transition-all delay-300 duration-1000 ease-in-out ${
+											intersected ? "bottom-8 opacity-100" : "bottom-16 opacity-0"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"

@@ -8,7 +8,7 @@ import Img3 from "../../images/home/ilus1/ilus3.svg";
 import Img4 from "../../images/home/ilus1/ilus4.svg";
 import Img5 from "../../images/home/ilus1/ilus5.svg";
 
-const Home = ({id}) => {
+const Home = ({ id, intersected }) => {
 	return (
 		<Section id={id} className="bg-beige1">
 			<div className="flex flex-col sm:flex-row mt-32 sm:mt-0">
@@ -25,22 +25,32 @@ const Home = ({id}) => {
 									<img
 										alt="Incuba ONG"
 										src={Img2}
-										className={`absolute w-96 left-1/2 -translate-x-1/2 bottom-0 z-20`}
+										className={`absolute w-96 left-1/2 -translate-x-1/2 bottom-0 z-20 transition-all duration-1000 ease-in-out ${
+											intersected ? "opacity-100" : "-rotate-45 opacity-0"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img3}
-										className={`absolute h-80 left-1/2 -translate-x-1/2 bottom-0 z-10 ml-2`}
+										className={`absolute h-80 left-1/2 -translate-x-1/2 bottom-0 z-10 ml-2 transition-all delay-300 duration-1000 ease-in-out ${
+											intersected ? "opacity-100" : "opacity-0"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img4}
-										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-4 ml-4 z-0`}
+										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-4 ml-4 z-0 transition-all duration-1000 ease-in-out ${
+											intersected ? "opacity-100" : "bottom-8 opacity-0"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img5}
-										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-4 ml-4 `}
+										className={`absolute w-64 left-1/2 -translate-x-1/2 ml-4 transition-all delay-500 duration-1000 ease-in-out ${
+											intersected
+												? "bottom-4 opacity-100"
+												: "bottom-12 opacity-0"
+										}`}
 									/>
 								</div>
 							</div>

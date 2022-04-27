@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { navigate } from "gatsby";
+
 import Home from "../components/home/Home";
 import Motivacion from "../components/home/Motivacion";
 import Nosotras from "../components/home/Nosotras";
@@ -10,13 +11,89 @@ import SectionEstrategia from "../components/home/SectionEstrategia";
 import Convocatoria from "../components/home/Convocatoria";
 import Contacto from "../components/home/Contacto";
 
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
+
 const IndexPage = () => {
+	const inicioRef = useRef(null);
+	const motivacionRef = useRef(null);
+	const resultadosRef = useRef(null);
+	const herramientasRef = useRef(null);
+	const convocatoriaRef = useRef(null);
+	const nosotrasRef = useRef(null);
+	const contactoRef = useRef(null);
+
+	const [homeShow, setHomeShow] = useState({
+		inicio: false,
+		motivacion: false,
+		resultados: false,
+		herramientas: false,
+		convocatoria: false,
+		nosotras: false,
+		contacto: false,
+	});
+
+	useIntersectionObserver({
+		refs: [
+			inicioRef,
+			motivacionRef,
+			resultadosRef,
+			herramientasRef,
+			convocatoriaRef,
+			nosotrasRef,
+			contactoRef,
+		],
+		callback: ({ isIntersecting, target }) => {
+			const sectionData = target.getAttribute("data-section-id");
+			if (isIntersecting) {
+				switch (sectionData) {
+					case "inicio":
+						setHomeShow({ ...homeShow, inicio: true });
+						break;
+					case "motivacion":
+						setHomeShow({ ...homeShow, motivacion: true });
+						break;
+					case "resultados":
+						setHomeShow({ ...homeShow, resultados: true });
+						break;
+					case "herramientas":
+						setHomeShow({ ...homeShow, herramientas: true });
+						break;
+					case "convocatoria":
+						setHomeShow({ ...homeShow, convocatoria: true });
+						break;
+					case "nosotras":
+						setHomeShow({ ...homeShow, nosotras: true });
+						break;
+					case "contacto":
+						setHomeShow({ ...homeShow, contacto: true });
+						break;
+					default:
+						break;
+				}
+			}
+		},
+		options: {
+			rootMargin: "0px",
+			root: inicioRef.current,
+			threshold: [0.5],
+		},
+	});
 	return (
 		<Layout title="Home">
-			<Home id="inicio" />
-			<Motivacion id="motivacion" />
-			<Resultados id="resultados" />
-			<div id="herramientas">
+			<div data-section-id="inicio" ref={inicioRef}>
+				<Home id="inicio" intersected={homeShow.inicio} />
+			</div>
+			<div data-section-id="motivacion" ref={motivacionRef}>
+				<Motivacion id="motivacion" intersected={homeShow.motivacion} />
+			</div>
+			<div data-section-id="resultados" ref={resultadosRef}>
+				<Resultados id="resultados" intersected={homeShow.resultados} />
+			</div>
+			<div
+				data-section-id="herramientas"
+				id="herramientas"
+				ref={herramientasRef}
+			>
 				<SectionEstrategia
 					className="bg-beige1"
 					title="Estrategias de intervención"
@@ -42,9 +119,15 @@ const IndexPage = () => {
 					action={() => navigate("/investigacion")}
 				/>
 			</div>
-			<Convocatoria id="convocatoria" />
-			<Nosotras />
-			<Contacto id="contacto" />
+			<div data-section-id="convocatoria" ref={convocatoriaRef}>
+				<Convocatoria id="convocatoria" />
+			</div>
+			<div data-section-id="nosotras" ref={nosotrasRef}>
+				<Nosotras intersected={homeShow.nosotras} />
+			</div>
+			<div data-section-id="contacto" ref={contactoRef}>
+				<Contacto id="contacto" />
+			</div>
 		</Layout>
 	);
 };

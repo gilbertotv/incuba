@@ -103,7 +103,7 @@ const Incubadora = () => {
 		<Layout title="Incubadora">
 			<div className="w-screen">
 				<div className="container">
-					<div className="flex flex-col md:flex-row my-28 sm:my-32">
+					<div className="flex flex-col md:flex-row mb-16 mt-28 sm:mt-32">
 						<div className="md:order-2 md:w-1/3">
 							<p className="block md:hidden text-xl text-orange1 font-benton700 sm:text-3xl">
 								Incubadora de organizaciones sin fines de lucro

@@ -161,7 +161,7 @@ const Contacto = ({ id }) => {
 					</div>
 				</div>
 			</form>
-			<div className=" mt-16">
+			<div className="my-16">
 				<p className="text-xl text-darkgray1">
 					Domicilio: Patricio Sanz 442,
 					<br />

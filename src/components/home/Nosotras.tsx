@@ -11,7 +11,7 @@ import Img5 from "../../images/home/ilus3/ilus5.svg";
 import Img6 from "../../images/home/ilus3/ilus6.svg";
 import Img7 from "../../images/home/ilus3/ilus7.svg";
 
-const Home = () => {
+const Home = ({intersected}) => {
 	return (
 		<Section className="bg-beige1">
 			<div className="flex flex-col sm:flex-row mt-12 sm:mt-0">
@@ -26,37 +26,51 @@ const Home = () => {
 									<img
 										alt="Incuba ONG"
 										src={Img1}
-										className={`absolute w-72 left-1/2 -translate-x-1/2 bottom-0 z-20`}
+										className={`absolute w-72 left-1/2 -translate-x-1/2 bottom-0 z-20 transition-all duration-1000 ease-in-out ${
+											intersected ? "opacity-100" : "opacity-0 -rotate-45"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img2}
-										className={`absolute w-72 left-1/2 -translate-x-1/2 bottom-0 z-20`}
+										className={`absolute w-72 left-1/2 -translate-x-1/2 bottom-0 z-20 transition-all duration-1000 ease-in-out ${
+											intersected ? "opacity-100" : "opacity-0 -rotate-45"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img3}
-										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-0 z-10`}
+										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-0 z-10 transition-all duration-1000 ease-in-out delay-100 ${
+											intersected ? "opacity-100" : "opacity-0 -bottom-8"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img4}
-										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-0 z-10`}
+										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-0 z-10 transition-all duration-1000 ease-in-out delay-150 ${
+											intersected ? "opacity-100" : "opacity-0 -bottom-8"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img5}
-										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-0 z-0`}
+										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-0 z-0 transition-all duration-1000 ease-in-out delay-200 ${
+											intersected ? "opacity-100" : "opacity-0 -bottom-8"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img6}
-										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-0`}
+										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-0 transition-all duration-1000 ease-in-out delay-300 ${
+											intersected ? "opacity-100" : "opacity-0 -bottom-8"
+										}`}
 									/>
 									<img
 										alt="Incuba ONG"
 										src={Img7}
-										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-0 `}
+										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-0 transition-all duration-1000 ease-in-out delay-500 ${
+											intersected ? "opacity-100 " : "opacity-0"
+										}`}
 									/>
 								</div>
 							</div>
