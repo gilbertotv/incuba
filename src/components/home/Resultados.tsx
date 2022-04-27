@@ -13,9 +13,11 @@ const Circle = ({ children, number, className, classCircle, intersected }) => (
 				{number}
 				{number === "1.4" && <p className="text-lg">millones</p>}
 			</div>
-			<div className={`text-darkgray1 text-base text-center w-full absolute left-0 -bottom-12 transition-all duration-1000 ease-in-out delay-1000 ${
+			<div
+				className={`text-darkgray1 text-base text-center w-full absolute left-0 -bottom-12 transition-all duration-1000 ease-in-out delay-1000 ${
 					intersected ? "opacity-100" : "opacity-0"
-				}`}>
+				}`}
+			>
 				{children}
 			</div>
 		</div>
@@ -81,10 +83,18 @@ const Home = ({ id, intersected }) => {
 						Nuestro modelo de fortalecimiento enfocado en el desarrollo
 						comunitario nos permite impactar en la vida de muchas personas.
 					</p>
-					<p className="text-lg text-darkgray1 sm:text-2xl  mb-8">
+					<p className="text-lg text-darkgray1 sm:text-3xl  mb-8">
 						Conoce más sobre nosotras, descarga nuestro reporte anual.
 					</p>
-					<Button text="Descargar" variant="orange" />
+					<Button
+						text="Descargar"
+						variant="orange"
+						action={() =>
+							window.open(
+								"https://drive.google.com/file/d/1ZfWHMnWc_8xYNDG2EBvk9PBVwnIKYRk4/view"
+							)
+						}
+					/>
 				</div>
 			</div>
 		</Section>
