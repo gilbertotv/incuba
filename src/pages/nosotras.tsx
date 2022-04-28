@@ -18,11 +18,11 @@ const Member = ({
 	return (
 		<div className="w-full text-darkgray1 mb-6">
 			<img alt={name} src={img} className="m-auto w-full" />
-			<p className="text-2xl font-benton700 my-6">{name}</p>
+			<p className="text-xl font-benton700 my-6">{name}</p>
 			{role && (
 				<p className="text-base font-benton700 text-orange1 my-6">{role}</p>
 			)}
-			<p className="text-xl my-6">{resume}</p>
+			<p className="text-lg my-6">{resume}</p>
 		</div>
 	);
 };
@@ -120,7 +120,7 @@ const Nosotras = () => {
 	return (
 		<Layout title="Incubadora">
 			<div className="w-screen">
-				<div className="container">
+				<div className="container md:px-24">
 					<div className="flex flex-col md:flex-row mt-28 sm:mt-32">
 						<p className="text-xl text-orange1 font-benton700 sm:text-3xl">
 							Nosotras
@@ -131,7 +131,7 @@ const Nosotras = () => {
 							<p className="mt-8 text-darkgray1 font-benton700 text-lg sm:text-3xl">
 								{group.group}
 							</p>
-							<div className="mt-8 mb-20 flex grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-16">
+							<div className="mt-8 mb-20 flex grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-16 lg:gap-32">
 								{group.members.map((member) => (
 									<Member
 										img={member.img}

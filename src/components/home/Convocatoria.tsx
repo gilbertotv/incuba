@@ -28,7 +28,7 @@ const Convocatoria = ({ id }) => {
 					</p>
 				</div>
 				<div className="sm:w-3/5 sm:pl-16">
-					<p className="text-xl text-darkgray1 sm:text-4xl mb-8">
+					<p className="text-xl text-darkgray1 sm:text-3xl mb-8">
 						El Modelo Incuba consiste en un acompañamiento de 12 meses para
 						organizaciones sin fines de lucro que busquen fortalecimiento
 						institucional.

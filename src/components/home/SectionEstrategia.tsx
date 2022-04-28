@@ -21,8 +21,8 @@ const SectionEstrategia = ({
 						{subtitle}
 					</p>
 				</div>
-				<div className="md:w-3/5 md:pl-16">
-					<p className="text-xl text-darkgray1 sm:text-4xl mb-8">{content}</p>
+				<div className="md:w-3/5 md:pl-16 md:pr-8">
+					<p className="text-xl text-darkgray1 sm:text-3xl mb-8">{content}</p>
 					<Button text={button} variant="orange" action={action} />
 				</div>
 			</div>

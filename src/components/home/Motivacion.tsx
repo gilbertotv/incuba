@@ -19,7 +19,7 @@ const Motivacion = ({ id, intersected }) => {
 					<div className="flex h-full items-center">
 						<div className="relative w-full h-full">
 							<div className="md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
-								<div className="relative m-auto w-80 h-80 sm:scale-125 lg:scale-150">
+								<div className="relative m-auto w-80 h-80 sm:scale-110 lg:scale-125">
 									<img
 										alt="Incuba ONG"
 										src={Img1}
@@ -68,7 +68,7 @@ const Motivacion = ({ id, intersected }) => {
 						<p className="textxl sm:text-3xl font-benton700 text-orange1 mb-8 hidden md:block">
 							Motivación
 						</p>
-						<p className="text-xl text-darkgray1 sm:text-3xl lg:text-4xl  mb-8">
+						<p className="text-xl text-darkgray1 sm:text-2xl lg:text-3xl  mb-8">
 							Somos una organización sin fines de lucro que busca contribuir al
 							fortalecimiento del espacio cívico local en México, a través de
 							acciones que permitan la incubación, el desarrollo y

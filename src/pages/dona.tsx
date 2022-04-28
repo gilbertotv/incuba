@@ -6,9 +6,14 @@ import Button from "../components/shared/Button";
 const RadioForm = ({ text, value, click }) => {
 	return (
 		<div className="text-darkgray1 text-lg sm:text-2xl mb-8">
-			<label className="radio-form-control">
+			<label className="flex relative radio-form-control">
 				<input type="radio" value={value} onClick={click} name="donacion" />
-				<span className="border-b border-orange1 ml-6 pb-4">{text}</span>
+				<div className="flex ml-6">
+					<div className="relative flex">
+						{text}
+						<div className="absolute w-full bottom-0 h-1 border-b border-orange1"></div>
+					</div>
+				</div>
 			</label>
 		</div>
 	);
@@ -37,7 +42,7 @@ const Dona = () => {
 	return (
 		<Layout title="Dona Ahora">
 			<Section>
-				<div className="text-darkgray1 my-28">
+				<div className="text-darkgray1 my-28 md:my-40">
 					<p className="text-lg sm:text-2xl">
 						Se parte de la semilla del cambio
 					</p>

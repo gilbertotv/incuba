@@ -10,12 +10,14 @@ interface IProps {}
 const Header = (props: IProps) => {
 	return (
 		<header>
-			<div className="p-4 absolute top-0 left-0 w-screen z-10">
-				<Link className="inline-flex" to="/">
-					<img src={logo} alt="Incuba ONG Logo" className="w-48" />
-				</Link>
+			<div className="w-screen absolute">
+				<div className="sm:container px-4 sm:px-0 py-4 z-10">
+					<Link className="inline-flex" to="/">
+						<img src={logo} alt="Incuba ONG Logo" className="w-48" />
+					</Link>
+				</div>
+				<Menu />
 			</div>
-			<Menu />
 		</header>
 	);
 };

@@ -22,7 +22,7 @@ const Home = ({intersected}) => {
 					<div className="flex h-full items-center">
 						<div className="relative w-full h-full">
 							<div className="sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2">
-								<div className="relative m-auto w-80 h-80 md:scale-150">
+								<div className="relative m-auto w-80 h-80 md:scale-125">
 									<img
 										alt="Incuba ONG"
 										src={Img1}
@@ -68,7 +68,7 @@ const Home = ({intersected}) => {
 									<img
 										alt="Incuba ONG"
 										src={Img7}
-										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-0 transition-all duration-1000 ease-in-out delay-500 ${
+										className={`absolute w-64 left-1/2 -translate-x-1/2 bottom-4 transition-all duration-1000 ease-in-out delay-500 ${
 											intersected ? "opacity-100 " : "opacity-0"
 										}`}
 									/>
@@ -81,7 +81,7 @@ const Home = ({intersected}) => {
 					<p className="textxl sm:text-3xl font-benton700 text-orange1 mb-8 hidden sm:block">
 						Nosotras
 					</p>
-					<p className="text-xl text-darkgray1 sm:text-4xl  mb-8">
+					<p className="text-xl text-darkgray1 sm:text-3xl  mb-8">
 						Somos un equipo de personas que busca contribuir al fortalecimiento
 						del espacio cívico local en México.
 					</p>

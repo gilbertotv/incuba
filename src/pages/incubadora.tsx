@@ -180,7 +180,7 @@ const Incubadora = () => {
 								<div className="relative w-full h-full">
 									<div className="md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
 										<div
-											className="relative m-auto w-80 h-80 md:scale-150"
+											className="relative m-auto w-80 h-80 md:scale-125"
 											ref={refIlus}
 										>
 											<img
@@ -233,11 +233,11 @@ const Incubadora = () => {
 								</div>
 							</div>
 						</div>
-						<div className="md:order-1 md:w-2/3 md:pr-28 ">
+						<div className="md:order-1 md:w-2/3 md:pr-24">
 							<p className="hidden md:block text-xl text-orange1 font-benton700 sm:text-3xl mb-8">
-								Incubadora de organizaciones sin fines de lucro
+								Incubadora de organizaciones <br/> sin fines de lucro
 							</p>
-							<p className="text-xl text-darkgray1 sm:text-3xl mb-8 mt-8 md:mt-0">
+							<p className="text-xl text-darkgray1 sm:text-2xl mb-8 mt-8 md:mt-0">
 								Es un programa de acompañamiento a organizaciones sin fines de
 								lucro durante 12 meses. Abordamos herramientas que les permitan
 								la implementación de procesos de fortalecimiento institucional y

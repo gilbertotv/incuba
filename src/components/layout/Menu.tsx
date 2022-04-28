@@ -75,12 +75,12 @@ const Menu = () => {
 						/>
 						<Option
 							text="Convocatoria"
-							link="/#convocatoria"
+							linkAnchor="/#convocatoria"
 							onClick={() => setMenuOpen(false)}
 						/>
 						<Option
 							text="Nosotras"
-							link="/reflexiones"
+							linkAnchor="/#nosotras"
 							onClick={() => setMenuOpen(false)}
 						/>
 						<Option

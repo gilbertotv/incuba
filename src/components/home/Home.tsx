@@ -1,6 +1,5 @@
 import React from "react";
 import Section from "../layout/Section";
-import Button from "../shared/Button";
 
 import Img1 from "../../images/home/ilus1/ilus1.svg";
 import Img2 from "../../images/home/ilus1/ilus2.svg";
@@ -16,7 +15,7 @@ const Home = ({ id, intersected }) => {
 					<div className="flex h-full items-center">
 						<div className="relative w-full h-full">
 							<div className="sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2">
-								<div className="relative m-auto w-80 h-80 sm:scale-150">
+								<div className="relative m-auto w-80 h-80 sm:scale-125">
 									<img
 										alt="Incuba ONG"
 										src={Img1}
@@ -58,11 +57,10 @@ const Home = ({ id, intersected }) => {
 					</div>
 				</div>
 				<div className="sm:w-1/2 sm:order-1 py-8 sm:py-36">
-					<p className="text-xl text-darkgray1 sm:text-4xl  mb-8">
+					<p className="text-xl text-darkgray1 sm:text-3xl  mb-8">
 						Empoderamos organizaciones sociales comprometidas con el desarrollo
 						comunitario.
 					</p>
-					<Button text="Conoce más" variant="orange" />
 				</div>
 			</div>
 		</Section>

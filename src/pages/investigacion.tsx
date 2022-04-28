@@ -1,5 +1,7 @@
 import React from "react";
 import { navigate } from "gatsby";
+import { useInView } from "react-intersection-observer";
+
 import Layout from "../components/layout/Layout";
 import Button from "../components/shared/Button";
 
@@ -12,6 +14,7 @@ import Img5 from "../images/investigacion/ilus5.svg";
 import ImgRecurso from "../images/investigacion/recurso1.svg";
 
 const Recurso = ({ img, title, summary, link }) => {
+
 	return (
 		<div className="w-full text-darkgray1 mb-6">
 			<img
@@ -69,6 +72,10 @@ const Investigacion = () => {
 			link: "/recursos/recurso",
 		},
 	];
+	const [refIlus, inViewIlus] = useInView({
+		threshold: 0,
+	});
+
 	return (
 		<Layout title="Incubadora">
 			<div className="w-screen">
@@ -81,31 +88,44 @@ const Investigacion = () => {
 							<div className="flex h-full items-center">
 								<div className="relative w-full h-full">
 									<div className="md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
-										<div className="relative m-auto w-80 h-80 md:scale-150">
+										<div
+											className="relative m-auto w-80 h-80 md:scale-125"
+											ref={refIlus}
+										>
 											<img
 												alt="Incuba ONG"
 												src={Img1}
-												className={`absolute w-96 left-1/2 -translate-x-1/2 bottom-0 z-10`}
+												className={`absolute w-96 left-1/2 -translate-x-1/2 bottom-0 z-10 transition-all duration-1000 ease-in-out ${
+													inViewIlus ? "opacity-100" : "w-0 opacity-0"
+												}`}
 											/>
 											<img
 												alt="Incuba ONG"
 												src={Img2}
-												className={`absolute w-96 left-1/2 -translate-x-1/2 bottom-0 z-0`}
+												className={`absolute w-96 left-1/2 -translate-x-1/2 bottom-0 z-0 transition-all duration-1000 ease-in-out ${
+													inViewIlus ? "opacity-100" : "opacity-0"
+												}`}
 											/>
 											<img
 												alt="Incuba ONG"
 												src={Img3}
-												className={`absolute w-80 left-1/2 -translate-x-1/2 bottom-0 z-10`}
+												className={`absolute w-80 left-1/2 -translate-x-1/2 bottom-0 z-10 transition-all duration-1000 ease-in-out delay-300 ${
+													inViewIlus ? "opacity-100" : "opacity-0"
+												}`}
 											/>
 											<img
 												alt="Incuba ONG"
 												src={Img4}
-												className={`absolute w-72 left-1/2 -translate-x-1/2 bottom-0 z-20`}
+												className={`absolute w-72 left-1/2 -translate-x-1/2 bottom-0 z-20 transition-all duration-1000 ease-in-out ${
+													inViewIlus ? "opacity-100" : "opacity-0 -bottom-4"
+												}`}
 											/>
 											<img
 												alt="Incuba ONG"
 												src={Img5}
-												className={`absolute w-72 left-1/2 -translate-x-1/2 bottom-0 -ml-4`}
+												className={`absolute w-72 left-1/2 -translate-x-1/2 bottom-0 -ml-4 transition-all duration-1000 ease-in-out ${
+													inViewIlus ? "opacity-100" : "opacity-0 rotate-45"
+												}`}
 											/>
 										</div>
 									</div>
@@ -117,7 +137,7 @@ const Investigacion = () => {
 								Conoce nuestras investigaciones
 							</p>
 							<ul className="pl-4 list-disc marker:text-purple1 marker:font-bold marker:text-3xl">
-								<li className="text-xl sm:text-3xl mb-8 mt-8">
+								<li className="text-xl sm:text-2xl mb-8 mt-8">
 									Cambios en el panorama de las organizaciones y el
 									financiamiento a raíz del COVID-19.
 								</li>
@@ -127,7 +147,7 @@ const Investigacion = () => {
 								<Button text="Descarga el resumen ejecutivo" variant="orange" />
 							</div>
 							<ul className="pl-4 list-disc marker:text-purple1 marker:font-bold marker:text-3xl">
-								<li className="text-xl sm:text-3xl mb-8 mt-8">
+								<li className="text-xl sm:text-2xl mb-8 mt-8">
 									International Landscape Scans on the Current State of the
 									Feedback Field in Mexico.
 								</li>
@@ -144,7 +164,7 @@ const Investigacion = () => {
 					<p className="mt-8 text-darkgray1 font-benton700 text-lg sm:text-3xl">
 						Otros recursos
 					</p>
-					<div className="mt-8 mb-20 flex grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-16">
+					<div className="mt-8 mb-20 flex grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-16 lg:gap-32">
 						{recursos.map((recurso, i) => (
 							<Recurso
 								key={`${i}${recurso.title}`}

@@ -29,7 +29,7 @@ const Home = ({ id, intersected }) => {
 		<Section id={id} className="bg-white">
 			<div className="flex flex-col lg:flex-row mt-12 sm:mt-0">
 				<div className="lg:w-1/2 lg:order-2 lg:h-auto mb-64 sm:mb-0">
-					<p className="block sm:hidden text-xl text-darkgray1 sm:text-4xl mb-4">
+					<p className="block sm:hidden text-xl text-darkgray1 sm:text-3xl mb-4">
 						Nuestro modelo de fortalecimiento enfocado en el desarrollo
 						comunitario nos permite impactar en la vida de muchas personas.
 					</p>

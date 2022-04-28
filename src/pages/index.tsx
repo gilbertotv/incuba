@@ -122,7 +122,7 @@ const IndexPage = () => {
 			<div data-section-id="convocatoria" ref={convocatoriaRef}>
 				<Convocatoria id="convocatoria" />
 			</div>
-			<div data-section-id="nosotras" ref={nosotrasRef}>
+			<div id="nosotras" data-section-id="nosotras" ref={nosotrasRef}>
 				<Nosotras intersected={homeShow.nosotras} />
 			</div>
 			<div data-section-id="contacto" ref={contactoRef}>
