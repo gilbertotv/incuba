@@ -11,7 +11,7 @@ const Header = (props: IProps) => {
 	return (
 		<header>
 			<div className="w-screen absolute">
-				<div className="sm:container px-4 sm:px-0 py-4 z-10">
+				<div className="sm:container p-4 z-10">
 					<Link className="inline-flex" to="/">
 						<img src={logo} alt="Incuba ONG Logo" className="w-48" />
 					</Link>

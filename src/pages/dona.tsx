@@ -60,7 +60,15 @@ const Dona = () => {
 							/>
 						))}
 					</div>
-					<Button text="Dona ahora" variant="orange" />
+					<Button
+						text="Donar"
+						variant="orange"
+						action={() =>
+							window.open(
+								"https://www.paypal.com/donate?token=aBB9DzrDy00ndv2Q3SmachN9VsN-4RM7dzP_LJTBHObjYUj8ma21f_jgbiEngY5QFwQs-8mnLWHxRUAm"
+							)
+						}
+					/>
 				</div>
 			</Section>
 		</Layout>
