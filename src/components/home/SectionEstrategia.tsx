@@ -11,7 +11,7 @@ const SectionEstrategia = ({
 	action,
 }) => {
 	return (
-		<Section className={`${className} min-h-0 sm:min-h-screen`}>
+		<Section className={`!min-h-0 sm:!min-h-screen ${className}`}>
 			<div className="flex flex-col md:flex-row my-12 md:my-0">
 				<div className="md:w-2/5">
 					<p className="text-xl font-benton700 text-orange1 sm:text-3xl md:-mt-24 mb-8 sm:mb-16">

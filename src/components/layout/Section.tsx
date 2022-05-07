@@ -13,7 +13,7 @@ const Section = ({
 		<section id={id}>
 			<div
 				className={`min-h-screen w-screen flex sm:items-center ${
-					className && className
+					className ? className : ""
 				}`}
 			>
 				<div className="container">{children}</div>

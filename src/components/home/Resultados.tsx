@@ -1,4 +1,6 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+
 import Section from "../layout/Section";
 import Button from "../shared/Button";
 
@@ -25,6 +27,34 @@ const Circle = ({ children, number, className, classCircle, intersected }) => (
 );
 
 const Home = ({ id, intersected }) => {
+	const data = useStaticQuery(graphql`
+		query {
+			allWpPost {
+				nodes {
+					reporte_anual {
+						urlFile
+						personasCapacitadas
+						orgIncubadas
+						orgFortalecidas
+						inversion
+					}
+				}
+			}
+		}
+	`);
+	const {
+		allWpPost: { nodes },
+	} = data;
+	const {
+		reporte_anual: {
+			urlFile,
+			personasCapacitadas,
+			orgIncubadas,
+			orgFortalecidas,
+			inversion,
+		},
+	} = nodes[0];
+
 	return (
 		<Section id={id} className="bg-white">
 			<div className="flex flex-col lg:flex-row mt-12 sm:mt-0">
@@ -38,7 +68,7 @@ const Home = ({ id, intersected }) => {
 							<Circle
 								className={`left-0 sm:left-8 top-0`}
 								classCircle="bg-beige1 text-black w-36 h-36 text-5xl"
-								number="76"
+								number={personasCapacitadas ? personasCapacitadas : 76}
 								intersected={intersected}
 							>
 								Personas
@@ -48,7 +78,7 @@ const Home = ({ id, intersected }) => {
 							<Circle
 								className="right-0 sm:right-auto sm:left-40 sm:bottom-0 top-36 sm:top-auto"
 								classCircle="bg-black text-white w-24 h-24 text-6xl delay-300"
-								number="9"
+								number={orgIncubadas ? orgIncubadas : 9}
 								intersected={intersected}
 							>
 								Organizaciones
@@ -58,7 +88,7 @@ const Home = ({ id, intersected }) => {
 							<Circle
 								className="left-0 sm:left-auto sm:right-56  top-56 sm:top-auto"
 								classCircle="bg-orange1 text-white w-28 h-28 text-6xl delay-500"
-								number="16"
+								number={orgFortalecidas ? orgFortalecidas : 16}
 								intersected={intersected}
 							>
 								Organizaciones
@@ -68,7 +98,7 @@ const Home = ({ id, intersected }) => {
 							<Circle
 								className="right-0 sm:bottom-0  top-96 sm:top-auto"
 								classCircle="bg-purple1 text-white w-48 h-48 text-5xl delay-700"
-								number="1.4"
+								number={inversion ? inversion : "1.4"}
 								intersected={intersected}
 							>
 								de pesos de inversión
@@ -91,7 +121,9 @@ const Home = ({ id, intersected }) => {
 						variant="orange"
 						action={() =>
 							window.open(
-								"https://drive.google.com/file/d/1ZfWHMnWc_8xYNDG2EBvk9PBVwnIKYRk4/view"
+								urlFile
+									? urlFile
+									: "https://drive.google.com/file/d/1ZfWHMnWc_8xYNDG2EBvk9PBVwnIKYRk4/view"
 							)
 						}
 					/>
