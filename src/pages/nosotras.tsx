@@ -82,7 +82,9 @@ const Nosotras = () => {
 
 	const groups: string[] = team
 		.map((node) => node.group)
-		.filter((value, index, self) => self.indexOf(value) === index);
+		.filter((value, index, self) => self.indexOf(value) === index)
+		.sort()
+		.reverse();
 
 	return (
 		<Layout title="Incubadora">
@@ -101,7 +103,13 @@ const Nosotras = () => {
 								</p>
 								<div className="mt-8 mb-20 flex grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-16 lg:gap-32">
 									{team
-										.filter((member) => member.group === group)
+										.filter(
+											(member) =>
+												member.group === group &&
+												member.name &&
+												member.img &&
+												member.resume
+										)
 										.sort((a, b) => a.order - b.order)
 										.map((member, indx) => (
 											<Member
