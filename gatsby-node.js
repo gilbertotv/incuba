@@ -33,6 +33,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 								mediaItemUrl
 							}
 							path
+							content2
+							inlineimage {
+								altText
+								mediaItemUrl
+							}
 						}
 					}
 				}

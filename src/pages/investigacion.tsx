@@ -44,11 +44,11 @@ interface Thumb {
 
 const Recurso = ({ thumb, title, summary, link }) => {
 	return (
-		<div className="w-full text-darkgray1 mb-6">
+		<div className="w-full text-darkgray1 mb-6 flex flex-col">
 			<img
-				alt={thumb.altText}
+				alt={thumb.altText ? thumb.altText : "Incuba ONG"}
 				src={thumb.mediaItemUrl}
-				className="m-auto w-full"
+				className="mx-auto w-full"
 				onClick={() => navigate(link)}
 			/>
 			<p className="text-lg font-benton700 my-6">{title}</p>
@@ -56,6 +56,7 @@ const Recurso = ({ thumb, title, summary, link }) => {
 			<Button
 				text="Leer completo"
 				variant="orange"
+				className="mt-auto"
 				action={() => navigate(`/recursos/${link}`)}
 			/>
 		</div>
@@ -154,7 +155,6 @@ const Investigacion = () => {
 			(a: RecursoResponse, b: RecursoResponse) =>
 				a.resource.order - b.resource.order
 		);
-	console.log(recursos);
 
 	return (
 		<Layout title="Incubadora">
