@@ -7,7 +7,7 @@ import Img3 from "../../images/home/ilus1/ilus3.svg";
 import Img4 from "../../images/home/ilus1/ilus4.svg";
 import Img5 from "../../images/home/ilus1/ilus5.svg";
 
-const Home = ({ id, intersected }) => {
+const Home = ({ id, intersected, home }) => {
 	return (
 		<Section id={id} className="bg-beige1">
 			<div className="flex flex-col sm:flex-row mt-32 sm:mt-0">
@@ -58,8 +58,9 @@ const Home = ({ id, intersected }) => {
 				</div>
 				<div className="sm:w-1/2 sm:order-1 py-8 sm:py-36">
 					<p className="text-xl text-darkgray1 sm:text-3xl  mb-8">
-						Empoderamos organizaciones sociales comprometidas con el desarrollo
-						comunitario.
+						{home
+							? home
+							: "Empoderamos organizaciones sociales comprometidas con el desarrollo comunitario."}
 					</p>
 				</div>
 			</div>

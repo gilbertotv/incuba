@@ -1,20 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
 	FacebookShareButton,
 	TwitterShareButton,
 	LinkedinShareButton,
 } from "react-share";
 
-import Layout from "../../components/layout/Layout";
+import Layout from "./layout/Layout";
 
-import Sideimg from "../../images/recursos/sideimg.svg";
-import Sideimg2 from "../../images/recursos/sideimg2.svg";
-import Content1 from "../../images/recursos/content.svg";
-import Twitter from "../../images/recursos/twitter.svg";
-import Facebook from "../../images/recursos/fb.svg";
-import Linkedin from "../../images/recursos/linkedin.svg";
+import Twitter from "../images/recursos/twitter.svg";
+import Facebook from "../images/recursos/fb.svg";
+import Linkedin from "../images/recursos/linkedin.svg";
 
-const Recurso = () => {
+const Recurso = ({ pageContext }) => {
+	const {
+		author,
+		authorurl,
+		authorusr,
+		content,
+		headtext,
+		reference,
+		sideimage,
+		title,
+		path,
+	} = pageContext.data;
+
+	const [contentHtml, setContentHtml] = useState();
+	useEffect(() => {
+		setContentHtml(content);
+	}, [content]);
+	const [mounted, setMounted] = useState(false);
+	useEffect(() => {
+		setMounted(true);
+	}, []);
 	return (
 		<Layout title="Recursos">
 			<div className="w-screen">
@@ -25,37 +42,48 @@ const Recurso = () => {
 								Otros recursos
 							</p>
 							<p className="text-darkgray1 text-xl sm:text-3xl font-benton700">
-								Iniciativas comunitarias: semillas de desarrollo económico
+								{title}
 							</p>
 						</div>
 						<div className="md:w-1/2">
 							<p className="text-xl text-darkgray1 sm:text-3xl mb-8 mt-8 md:mt-0">
-								En síntesis, sin una baja en la pobreza y en la inequidad, no
-								puede hablarse de desarrollo, y sin una mayor conciencia por el
-								cuidado de los recursos naturales, tampoco.
+								{headtext}
 							</p>
 						</div>
 					</div>
 					<div className="relative flex items-center mb-8">
 						<p className="text-darkgray1 text-base shrink-0 pr-8">
-							por <span className="font-benton700">Ana Laura Goszko</span>
-							<br /> @analauragoszko
+							<span className="font-benton700">{author}</span>
+							<br />
+							<span onClick={() => authorurl && window.open(authorurl)}>
+								{authorusr}
+							</span>
 						</p>
 						<div className="border-orange1 border-t w-full h-1"></div>
 					</div>
 					<div className="flex flex-col md:flex-row text-lg">
 						<div className="md:order-2 md:w-1/5">
-							<img
-								src={Sideimg}
-								alt="Recursos"
-								className="w-full hidden md:block"
-							/>
-							<img
+							{sideimage && (
+								<img
+									src={sideimage.mediaItemUrl}
+									alt={sideimage.altText}
+									className="w-full hidden md:block"
+								/>
+							)}
+							{/*<img
 								src={Sideimg2}
 								alt="Recursos"
 								className="w-full block md:hidden mb-12"
-							/>
+                            />*/}
 						</div>
+						{mounted && contentHtml && (
+							<div
+								className="md:order-1 md:w-4/5 text-darkgray1 md:pr-36"
+								suppressHydrationWarning={true}
+								dangerouslySetInnerHTML={{ __html: contentHtml }}
+							></div>
+						)}
+						{/*
 						<div className="md:order-1 md:w-4/5 text-darkgray1 md:pr-36">
 							<p className="mb-4">
 								Las criptomonedas son monedas digitales con las cuales es
@@ -131,34 +159,45 @@ const Recurso = () => {
 								acceder a otro tipo de donaciones.
 							</p>
 							<div className="border-orange1 border-b my-12 w-full h-1"></div>
-						</div>
+						</div>*/}
 					</div>
 					<div className="">
+						<div
+							className="text-darkgray1 break-all"
+							dangerouslySetInnerHTML={{ __html: reference }}
+						></div>
+						{/*
 						<p className="text-darkgray1 break-all">
 							<span className="font-benton700">Referencia:</span>
 							<br />
 							<a href="https://www.capterra.mx/software/218787/engiven-cryptocurrency-donation-platform">
 								https://www.capterra.mx/software/218787/engiven-cryptocurrency-donation-platform
 							</a>
-						</p>
+                    </p>*/}
 						<div className="font-benton700 flex flex-col sm:flex-row justify-between text-darkgray1 sm:w-2/3 lg:w-1/3 my-12">
 							<div className="mb-4">Compartir</div>
 							<div className="flex gap-4 justify-between px-8 sm:px-0">
-								<TwitterShareButton url={`https://www.incuba.ong/`}>
+								<TwitterShareButton
+									url={`https://www.incuba.ong/recursos/${path}`}
+								>
 									<img
 										src={Twitter}
 										alt="Twitter"
 										className="cursor-pointer w-12"
 									/>
 								</TwitterShareButton>
-								<FacebookShareButton url={`https://www.incuba.ong/`}>
+								<FacebookShareButton
+									url={`https://www.incuba.ong/recursos/${path}`}
+								>
 									<img
 										src={Facebook}
 										alt="Facebook"
 										className="cursor-pointer w-12"
 									/>
 								</FacebookShareButton>
-								<LinkedinShareButton url={`https://www.incuba.ong/`}>
+								<LinkedinShareButton
+									url={`https://www.incuba.ong/recursos/${path}`}
+								>
 									<img
 										src={Linkedin}
 										alt="Twitter"

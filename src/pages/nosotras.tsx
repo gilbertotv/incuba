@@ -54,7 +54,11 @@ const Member = ({
 const Nosotras = () => {
 	const data = useStaticQuery(graphql`
 		query {
-			allWpPost {
+			allWpPost(
+				filter: {
+					categories: { nodes: { elemMatch: { slug: { eq: "equipo" } } } }
+				}
+			) {
 				nodes {
 					equipo {
 						group

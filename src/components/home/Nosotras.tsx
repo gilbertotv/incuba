@@ -1,5 +1,5 @@
 import React from "react";
-import {navigate} from "gatsby"
+import { navigate } from "gatsby";
 import Section from "../layout/Section";
 import Button from "../shared/Button";
 
@@ -11,7 +11,7 @@ import Img5 from "../../images/home/ilus3/ilus5.svg";
 import Img6 from "../../images/home/ilus3/ilus6.svg";
 import Img7 from "../../images/home/ilus3/ilus7.svg";
 
-const Home = ({intersected}) => {
+const Home = ({ intersected, nosotras }) => {
 	return (
 		<Section className="bg-beige1">
 			<div className="flex flex-col sm:flex-row mt-12 sm:mt-0">
@@ -82,10 +82,15 @@ const Home = ({intersected}) => {
 						Nosotras
 					</p>
 					<p className="text-xl text-darkgray1 sm:text-3xl  mb-8">
-						Somos un equipo de personas que busca contribuir al fortalecimiento
-						del espacio cívico local en México.
+						{nosotras
+							? nosotras
+							: "Somos un equipo de personas que busca contribuir al fortalecimiento del espacio cívico local en México."}
 					</p>
-					<Button text="Conócenos" variant="orange" action={()=>navigate("/nosotras")} />
+					<Button
+						text="Conócenos"
+						variant="orange"
+						action={() => navigate("/nosotras")}
+					/>
 				</div>
 			</div>
 		</Section>

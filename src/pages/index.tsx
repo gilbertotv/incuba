@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { navigate } from "gatsby";
+import { graphql, navigate, useStaticQuery } from "gatsby";
 
 import Home from "../components/home/Home";
 import Motivacion from "../components/home/Motivacion";
@@ -13,7 +13,47 @@ import Contacto from "../components/home/Contacto";
 
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
+interface Home {
+	urlFile: string;
+	resultados: string;
+	reporte: string;
+	personasCapacitadas: number;
+	orgIncubadas: number;
+	orgFortalecidas: number;
+	nosotras: string;
+	motivacion: string;
+	inversion: string;
+	convocatoria: string;
+	home: string;
+}
+
 const IndexPage = () => {
+	const data = useStaticQuery(graphql`
+		query {
+			allWpPost(
+				filter: {
+					categories: { nodes: { elemMatch: { slug: { eq: "home" } } } }
+				}
+			) {
+				nodes {
+					home {
+						urlFile
+						resultados
+						reporte
+						personasCapacitadas
+						orgIncubadas
+						orgFortalecidas
+						nosotras
+						motivacion
+						inversion
+						convocatoria
+						home
+					}
+				}
+			}
+		}
+	`);
+
 	const inicioRef = useRef(null);
 	const motivacionRef = useRef(null);
 	const resultadosRef = useRef(null);
@@ -78,16 +118,37 @@ const IndexPage = () => {
 			threshold: [0.5],
 		},
 	});
+
+	const {
+		allWpPost: { nodes },
+	} = data;
+
+	const home: Home = nodes.find((node) => node.home !== null).home;
+
 	return (
 		<Layout title="Home">
 			<div data-section-id="inicio" ref={inicioRef}>
-				<Home id="inicio" intersected={homeShow.inicio} />
+				<Home id="inicio" intersected={homeShow.inicio} home={home.home} />
 			</div>
 			<div data-section-id="motivacion" ref={motivacionRef}>
-				<Motivacion id="motivacion" intersected={homeShow.motivacion} />
+				<Motivacion
+					id="motivacion"
+					intersected={homeShow.motivacion}
+					motivacion={home.motivacion}
+				/>
 			</div>
 			<div data-section-id="resultados" ref={resultadosRef}>
-				<Resultados id="resultados" intersected={homeShow.resultados} />
+				<Resultados
+					id="resultados"
+					intersected={homeShow.resultados}
+					resultados={home.resultados}
+					reporte={home.reporte}
+					personasCapacitadas={home.personasCapacitadas}
+					orgIncubadas={home.orgIncubadas}
+					orgFortalecidas={home.orgFortalecidas}
+					inversion={home.inversion}
+					urlFile={home.urlFile}
+				/>
 			</div>
 			<div
 				data-section-id="herramientas"
@@ -120,10 +181,10 @@ const IndexPage = () => {
 				/>
 			</div>
 			<div data-section-id="convocatoria" ref={convocatoriaRef}>
-				<Convocatoria id="convocatoria" />
+				<Convocatoria id="convocatoria" convocatoria={home.convocatoria} />
 			</div>
 			<div id="nosotras" data-section-id="nosotras" ref={nosotrasRef}>
-				<Nosotras intersected={homeShow.nosotras} />
+				<Nosotras intersected={homeShow.nosotras} nosotras={home.nosotras} />
 			</div>
 			<div data-section-id="contacto" ref={contactoRef}>
 				<Contacto id="contacto" />

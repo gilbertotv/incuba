@@ -8,7 +8,7 @@ import Img4 from "../../images/home/ilus2/ilus4.svg";
 import Img5 from "../../images/home/ilus2/ilus5.svg";
 import Img6 from "../../images/home/ilus2/ilus6.svg";
 
-const Motivacion = ({ id, intersected }) => {
+const Motivacion = ({ id, intersected, motivacion }) => {
 	return (
 		<Section id={id} className="bg-white">
 			<div className="flex flex-col md:flex-row mt-12 md:mt-0">
@@ -50,7 +50,9 @@ const Motivacion = ({ id, intersected }) => {
 										alt="Incuba ONG"
 										src={Img5}
 										className={`absolute w-72 left-1/2 -translate-x-1/2 -ml-4 z-20 transition-all delay-300 duration-1000 ease-in-out ${
-											intersected ? "bottom-8 opacity-100" : "bottom-16 opacity-0"
+											intersected
+												? "bottom-8 opacity-100"
+												: "bottom-16 opacity-0"
 										}`}
 									/>
 									<img
@@ -69,11 +71,9 @@ const Motivacion = ({ id, intersected }) => {
 							Motivación
 						</p>
 						<p className="text-xl text-darkgray1 sm:text-2xl lg:text-3xl  mb-8">
-							Somos una organización sin fines de lucro que busca contribuir al
-							fortalecimiento del espacio cívico local en México, a través de
-							acciones que permitan la incubación, el desarrollo y
-							sostenibilidad institucional de iniciativas de base comunitaria
-							sin fines de lucro.
+							{motivacion
+								? motivacion
+								: "Somos una organización sin fines de lucro que busca contribuir al fortalecimiento del espacio cívico local en México, a través de acciones que permitan la incubación, el desarrollo y sostenibilidad institucional de iniciativas de base comunitaria sin fines de lucro."}
 						</p>
 					</div>
 				</div>

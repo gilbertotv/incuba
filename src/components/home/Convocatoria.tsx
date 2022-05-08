@@ -18,7 +18,7 @@ import ImgAl5 from "../../images/home/organizaciones/al5.svg";
 import ImgAl6 from "../../images/home/organizaciones/al6.svg";
 import ImgAl7 from "../../images/home/organizaciones/al7.svg";
 
-const Convocatoria = ({ id }) => {
+const Convocatoria = ({ id, convocatoria }) => {
 	return (
 		<Section id={id} className="bg-white sm:pt-32">
 			<div className="flex flex-col sm:flex-row mt-12 sm:mt-0">
@@ -29,9 +29,9 @@ const Convocatoria = ({ id }) => {
 				</div>
 				<div className="sm:w-3/5 sm:pl-16">
 					<p className="text-xl text-darkgray1 sm:text-3xl mb-8">
-						El Modelo Incuba consiste en un acompañamiento de 12 meses para
-						organizaciones sin fines de lucro que busquen fortalecimiento
-						institucional.
+						{convocatoria
+							? convocatoria
+							: "El Modelo Incuba consiste en un acompañamiento de 12 meses para organizaciones sin fines de lucro que busquen fortalecimiento institucional."}
 					</p>
 				</div>
 			</div>

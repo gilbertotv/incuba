@@ -26,42 +26,25 @@ const Circle = ({ children, number, className, classCircle, intersected }) => (
 	</div>
 );
 
-const Home = ({ id, intersected }) => {
-	const data = useStaticQuery(graphql`
-		query {
-			allWpPost {
-				nodes {
-					reporte_anual {
-						urlFile
-						personasCapacitadas
-						orgIncubadas
-						orgFortalecidas
-						inversion
-					}
-				}
-			}
-		}
-	`);
-	const {
-		allWpPost: { nodes },
-	} = data;
-	const {
-		reporte_anual: {
-			urlFile,
-			personasCapacitadas,
-			orgIncubadas,
-			orgFortalecidas,
-			inversion,
-		},
-	} = nodes[0];
-
+const Home = ({
+	id,
+	intersected,
+	resultados,
+	reporte,
+	personasCapacitadas,
+	orgIncubadas,
+	orgFortalecidas,
+	inversion,
+	urlFile,
+}) => {
 	return (
 		<Section id={id} className="bg-white">
 			<div className="flex flex-col lg:flex-row mt-12 sm:mt-0">
 				<div className="lg:w-1/2 lg:order-2 lg:h-auto mb-64 sm:mb-0">
 					<p className="block sm:hidden text-xl text-darkgray1 sm:text-3xl mb-4">
-						Nuestro modelo de fortalecimiento enfocado en el desarrollo
-						comunitario nos permite impactar en la vida de muchas personas.
+						{resultados
+							? resultados
+							: "Nuestro modelo de fortalecimiento enfocado en el desarrollo comunitario nos permite impactar en la vida de muchas personas."}
 					</p>
 					<div className="relative w-full h-full flex items-center justify-center">
 						<div className="relative lg:absolute w-72 sm:w-full h-96 sm:h-72">
@@ -110,11 +93,14 @@ const Home = ({ id, intersected }) => {
 				</div>
 				<div className="lg:w-1/2 lg:order-1 py-8 sm:py-36">
 					<p className="hidden sm:block text-xl text-darkgray1 sm:text-4xl mb-4">
-						Nuestro modelo de fortalecimiento enfocado en el desarrollo
-						comunitario nos permite impactar en la vida de muchas personas.
+						{resultados
+							? resultados
+							: "Nuestro modelo de fortalecimiento enfocado en el desarrollo comunitario nos permite impactar en la vida de muchas personas."}
 					</p>
 					<p className="text-lg text-darkgray1 sm:text-3xl  mb-8">
-						Conoce más sobre nosotras, descarga nuestro reporte anual.
+						{reporte
+							? reporte
+							: "Conoce más sobre nosotras, descarga nuestro reporte anual."}
 					</p>
 					<Button
 						text="Descargar"

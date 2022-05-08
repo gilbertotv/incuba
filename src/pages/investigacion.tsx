@@ -1,5 +1,5 @@
 import React from "react";
-import { navigate } from "gatsby";
+import { navigate, useStaticQuery, graphql } from "gatsby";
 import { useInView } from "react-intersection-observer";
 
 import Layout from "../components/layout/Layout";
@@ -13,13 +13,41 @@ import Img5 from "../images/investigacion/ilus5.svg";
 
 import ImgRecurso from "../images/investigacion/recurso1.svg";
 
-const Recurso = ({ img, title, summary, link }) => {
+interface InvestigacionResponse {
+	investigacion: Investigacion;
+}
+interface RecursoResponse {
+	resource: Recurso;
+}
 
+interface Investigacion {
+	order: number;
+	button: null | string;
+	button2text: null | string;
+	title: null | string;
+	url1: null | string;
+	url2: null | string;
+}
+
+interface Recurso {
+	order: number;
+	summary: string;
+	title: string;
+	thumb: Thumb;
+	path: string;
+}
+
+interface Thumb {
+	altText: string;
+	mediaItemUrl: string;
+}
+
+const Recurso = ({ thumb, title, summary, link }) => {
 	return (
 		<div className="w-full text-darkgray1 mb-6">
 			<img
-				alt={title}
-				src={img}
+				alt={thumb.altText}
+				src={thumb.mediaItemUrl}
 				className="m-auto w-full"
 				onClick={() => navigate(link)}
 			/>
@@ -28,53 +56,105 @@ const Recurso = ({ img, title, summary, link }) => {
 			<Button
 				text="Leer completo"
 				variant="orange"
-				action={() => navigate(link)}
+				action={() => navigate(`/recursos/${link}`)}
 			/>
 		</div>
 	);
 };
 
+const InvestigacionButtons = ({ title, btn1Text, url1, btn2Text, url2 }) => (
+	<>
+		<ul className="pl-4 list-disc marker:text-purple1 marker:font-bold marker:text-3xl">
+			<li className="text-xl sm:text-2xl mb-8 mt-8">{title}</li>
+		</ul>
+		<div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
+			{btn1Text && (
+				<Button
+					text={btn1Text}
+					variant="orange"
+					action={() => window.open(url1)}
+				/>
+			)}
+			{btn2Text && (
+				<Button
+					text={btn2Text}
+					variant="orange"
+					action={() => window.open(url2)}
+				/>
+			)}
+		</div>
+	</>
+);
+
 const Investigacion = () => {
-	const recursos = [
-		{
-			img: ImgRecurso,
-			title: "¿Recibir donativos en criptomonedas?",
-			summary:
-				"Las criptomonedas son monedas digitales con las cuales es posible realizar operaciones o transacciones de manera inmediata y segura.",
-			link: "/recursos/recurso",
-		},
-		{
-			img: ImgRecurso,
-			title: "¿Recibir donativos en criptomonedas?",
-			summary:
-				"Las criptomonedas son monedas digitales con las cuales es posible realizar operaciones o transacciones de manera inmediata y segura.",
-			link: "/recursos/recurso",
-		},
-		{
-			img: ImgRecurso,
-			title: "¿Recibir donativos en criptomonedas?",
-			summary:
-				"Las criptomonedas son monedas digitales con las cuales es posible realizar operaciones o transacciones de manera inmediata y segura.",
-			link: "/recursos/recurso",
-		},
-		{
-			img: ImgRecurso,
-			title: "¿Recibir donativos en criptomonedas?",
-			summary:
-				"Las criptomonedas son monedas digitales con las cuales es posible realizar operaciones o transacciones de manera inmediata y segura.",
-			link: "/recursos/recurso",
-		},
-		{
-			img: ImgRecurso,
-			title: "¿Recibir donativos en criptomonedas?",
-			summary:
-				"Las criptomonedas son monedas digitales con las cuales es posible realizar operaciones o transacciones de manera inmediata y segura.",
-			link: "/recursos/recurso",
-		},
-	];
+	const data = useStaticQuery(graphql`
+		query {
+			investigacion: allWpPost(
+				filter: {
+					categories: {
+						nodes: { elemMatch: { slug: { eq: "investigacion" } } }
+					}
+				}
+			) {
+				nodes {
+					investigacion {
+						order
+						button
+						button2text
+						title
+						url1
+						url2
+					}
+				}
+			}
+			recursos: allWpPost(
+				filter: {
+					categories: { nodes: { elemMatch: { slug: { eq: "recurso" } } } }
+				}
+			) {
+				nodes {
+					resource {
+						order
+						summary
+						title
+						thumb {
+							altText
+							mediaItemUrl
+						}
+						path
+					}
+				}
+			}
+		}
+	`);
+
 	const [refIlus, inViewIlus] = useInView({
 		threshold: 0,
 	});
+
+	const {
+		investigacion: { nodes },
+		recursos: { nodes: nodesRecursos },
+	} = data;
+
+	const investigaciones: InvestigacionResponse[] = nodes
+		.filter((node: InvestigacionResponse) => node.investigacion !== null)
+		.filter((node: InvestigacionResponse) => node.investigacion.title !== null)
+		.sort(
+			(a: InvestigacionResponse, b: InvestigacionResponse) =>
+				a.investigacion.order - b.investigacion.order
+		);
+
+	const recursos: RecursoResponse[] = nodesRecursos
+		.filter(
+			({ resource }) =>
+				resource.path && resource.path !== null && resource.path !== ""
+		)
+		.sort(
+			(a: RecursoResponse, b: RecursoResponse) =>
+				a.resource.order - b.resource.order
+		);
+	console.log(recursos);
 
 	return (
 		<Layout title="Incubadora">
@@ -136,42 +216,29 @@ const Investigacion = () => {
 							<p className="hidden md:block text-xl text-orange1 font-benton700 sm:text-3xl mb-8">
 								Conoce nuestras investigaciones
 							</p>
-							<ul className="pl-4 list-disc marker:text-purple1 marker:font-bold marker:text-3xl">
-								<li className="text-xl sm:text-2xl mb-8 mt-8">
-									Cambios en el panorama de las organizaciones y el
-									financiamiento a raíz del COVID-19.
-								</li>
-							</ul>
-							<div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
-								<Button text="Descarga el estudio completo" variant="orange" />
-								<Button text="Descarga el resumen ejecutivo" variant="orange" />
-							</div>
-							<ul className="pl-4 list-disc marker:text-purple1 marker:font-bold marker:text-3xl">
-								<li className="text-xl sm:text-2xl mb-8 mt-8">
-									International Landscape Scans on the Current State of the
-									Feedback Field in Mexico.
-								</li>
-							</ul>
-							<div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
-								<Button
-									text="Descarga el estudio en español"
-									variant="orange"
+							{investigaciones.map((inv, indx) => (
+								<InvestigacionButtons
+									key={`inv${indx}`}
+									title={inv.investigacion.title}
+									btn1Text={inv.investigacion.button}
+									url1={inv.investigacion.url1}
+									btn2Text={inv.investigacion.button2text}
+									url2={inv.investigacion.url2}
 								/>
-								<Button text="Descarga el estudio en inglés" variant="orange" />
-							</div>
+							))}
 						</div>
 					</div>
 					<p className="mt-8 text-darkgray1 font-benton700 text-lg sm:text-3xl">
 						Otros recursos
 					</p>
 					<div className="mt-8 mb-20 flex grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-16 lg:gap-32">
-						{recursos.map((recurso, i) => (
+						{recursos.map(({ resource }, i) => (
 							<Recurso
-								key={`${i}${recurso.title}`}
-								img={recurso.img}
-								title={recurso.title}
-								summary={recurso.summary}
-								link={recurso.link}
+								key={`${i}resource`}
+								thumb={resource.thumb}
+								title={resource.title}
+								summary={resource.summary}
+								link={resource.path}
 							/>
 						))}
 					</div>
