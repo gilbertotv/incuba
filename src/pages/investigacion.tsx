@@ -11,8 +11,6 @@ import Img3 from "../images/investigacion/ilus3.svg";
 import Img4 from "../images/investigacion/ilus4.svg";
 import Img5 from "../images/investigacion/ilus5.svg";
 
-import ImgRecurso from "../images/investigacion/recurso1.svg";
-
 interface InvestigacionResponse {
 	investigacion: Investigacion;
 }

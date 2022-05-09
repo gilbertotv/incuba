@@ -37,7 +37,7 @@ const Recurso = ({ pageContext }) => {
 			<div className="w-screen">
 				<div className="container">
 					<div className="flex flex-col md:flex-row mt-28 sm:mt-32">
-						<div className="md:w-1/2 md:pr-32">
+						<div className="md:w-1/2 md:pr-32 mb-8">
 							<p className="text-xl sm:text-3xl font-benton700 text-orange1">
 								Otros recursos
 							</p>
@@ -45,8 +45,8 @@ const Recurso = ({ pageContext }) => {
 								{title}
 							</p>
 						</div>
-						<div className="md:w-1/2">
-							<p className="text-xl text-darkgray1 sm:text-3xl mb-8 mt-8 md:mt-0">
+						<div className="md:w-1/2 mb-8">
+							<p className="text-xl text-darkgray1 sm:text-3xl mt-8 md:mt-0">
 								{headtext}
 							</p>
 						</div>
