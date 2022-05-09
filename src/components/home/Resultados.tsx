@@ -69,7 +69,7 @@ const Home = ({
 								incubadas
 							</Circle>
 							<Circle
-								className="left-0 sm:left-auto sm:right-56  top-56 sm:top-auto"
+								className="left-0 sm:left-auto sm:right-56 md:right-64 lg:right-44 xl:right-56 top-56 sm:top-auto"
 								classCircle="bg-orange1 text-white w-28 h-28 text-6xl delay-500"
 								number={orgFortalecidas ? orgFortalecidas : 16}
 								intersected={intersected}

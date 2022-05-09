@@ -47,7 +47,7 @@ const Recurso = ({ thumb, title, summary, link }) => {
 				alt={thumb.altText ? thumb.altText : "Incuba ONG"}
 				src={thumb.mediaItemUrl}
 				className="mx-auto w-full"
-				onClick={() => navigate(link)}
+				onClick={() => navigate(`/recursos/${link}`)}
 			/>
 			<p className="text-lg font-benton700 my-6">{title}</p>
 			<p className="text-base my-6">{summary}</p>
