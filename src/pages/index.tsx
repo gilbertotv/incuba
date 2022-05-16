@@ -81,47 +81,45 @@ const IndexPage = () => {
 	const [greater, setGreater] = useState(false);
 	const [heightEst, setHeightEst] = useState(0);
 	{
-		/*
-	useEffect(() => {
-		const offset = document.querySelector(
-			"#herramientas-container"
-			// @ts-ignore:next-line
-		).offsetWidth;
-		const scroll = document.querySelector(
-			"#herramientas-container"
-		).scrollWidth;
-		setHeightEst(scroll - offset);
-	}, []);
+		useEffect(() => {
+			const offset = document.querySelector(
+				"#herramientas-container"
+				// @ts-ignore:next-line
+			).offsetWidth;
+			const scroll = document.querySelector(
+				"#herramientas-container"
+			).scrollWidth;
+			setHeightEst(scroll - offset);
+		}, []);
 
-	useEffect(() => {
-		const container = document.querySelector("#herramientas");
-		const onScroll = (e) => {
-			if (
-				window.scrollY > herramientasRef.current.offsetTop &&
-				window.scrollY <
-					herramientasRef.current.offsetTop +
-						herramientasRef.current.clientHeight
-			) {
-				const offset = document.querySelector(
-					"#herramientas-container"
-					// @ts-ignore:next-line
-				).scrollWidth;
-				setGreater(true);
-				const delta = window.scrollY - herramientasRef.current.offsetTop;
-				document.querySelector("#herramientas-container").scrollLeft = delta;
-				console.log(delta);
-				console.log(size);
-				console.log(offset);
-			} else setGreater(false);
-		};
+		useEffect(() => {
+			const container = document.querySelector("#herramientas");
+			const onScroll = (e) => {
+				if (
+					window.scrollY > herramientasRef.current.offsetTop &&
+					window.scrollY <
+						herramientasRef.current.offsetTop +
+							herramientasRef.current.clientHeight
+				) {
+					const offset = document.querySelector(
+						"#herramientas-container"
+						// @ts-ignore:next-line
+					).scrollWidth;
+					setGreater(true);
+					const delta = window.scrollY - herramientasRef.current.offsetTop;
+					document.querySelector("#herramientas-container").scrollLeft = delta;
+					console.log(delta);
+					console.log(size);
+					console.log(offset);
+				} else setGreater(false);
+			};
 
-		window.addEventListener("scroll", onScroll);
+			window.addEventListener("scroll", onScroll);
 
-		return () => {
-			window.removeEventListener("scroll", onScroll);
-		};
-	}, []);
-*/
+			return () => {
+				window.removeEventListener("scroll", onScroll);
+			};
+		}, []);
 	}
 	useIntersectionObserver({
 		refs: [
@@ -207,11 +205,13 @@ const IndexPage = () => {
 				className={``}
 				data-section-id="herramientas"
 				ref={herramientasRef}
-				//style={{ height: `${size.width * 3}px` }}
+				style={{ height: `${size.width * 3}px` }}
 			>
 				<div
 					id="herramientas-container"
-					//className={`flex flex-row w-screen overflow-x-auto ${greater ? "fixed top-0 left-0" : ""}`}
+					className={`flex flex-row w-screen overflow-x-auto ${
+						greater ? "fixed top-0 left-0" : ""
+					}`}
 				>
 					<SectionEstrategia
 						className="bg-beige1"
