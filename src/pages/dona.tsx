@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import Layout from "../components/layout/Layout";
 import Section from "../components/layout/Section";
 import Button from "../components/shared/Button";
@@ -17,6 +18,12 @@ const RadioForm = ({ text, value, click }) => {
 			</label>
 		</div>
 	);
+};
+
+let counter = 0;
+
+const generateId = () => {
+	return `ID-${++counter}`; // if it is necessary, use some better unique id generator
 };
 
 const Dona = () => {
@@ -38,7 +45,7 @@ const Dona = () => {
 			value: 3,
 		},
 	];
-	const [opcion, setOpcion] = useState(0);
+	const [opcion, setOpcion] = useState<number>(-1);
 	return (
 		<Layout title="Dona Ahora">
 			<Section>
@@ -60,6 +67,27 @@ const Dona = () => {
 							/>
 						))}
 					</div>
+
+					<form
+						action="https://www.paypal.com/cgi-bin/webscr"
+						method="post"
+						target="_blank"
+					>
+						<input type="hidden" name="cmd" value="_s-xclick" />
+						<input
+							type="hidden"
+							name="hosted_button_id"
+							value="HTZABC7MY6YHU"
+						/>
+						<input
+							type="hidden"
+							name="item_name"
+							value={opcion !== -1 ? opciones[opcion].text : ""}
+						/>
+						<Button text="Donar" variant="orange" type="submit" />
+					</form>
+
+					{/*
 					<Button
 						text="Donar"
 						variant="orange"
@@ -68,7 +96,7 @@ const Dona = () => {
 								"https://www.paypal.com/donate?token=aBB9DzrDy00ndv2Q3SmachN9VsN-4RM7dzP_LJTBHObjYUj8ma21f_jgbiEngY5QFwQs-8mnLWHxRUAm"
 							)
 						}
-					/>
+					/>*/}
 				</div>
 			</Section>
 		</Layout>

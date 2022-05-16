@@ -1,6 +1,18 @@
+import axios from "axios";
 import React, { useRef, useState } from "react";
+import { BeatLoader } from "react-spinners";
 import Section from "../layout/Section";
 import Button from "../shared/Button";
+
+const convertJsontoUrlencoded = (obj) => {
+	let str = [];
+	for (let key in obj) {
+		if (obj.hasOwnProperty(key)) {
+			str.push(encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]));
+		}
+	}
+	return str.join("&");
+};
 
 const Contacto = ({ id }) => {
 	const [form, setForm] = useState({ name: "", email: "" });
@@ -43,10 +55,10 @@ const Contacto = ({ id }) => {
 			errors++;
 		}
 		if (errors === 0) {
-			setLoading(true); /*
+			setLoading(true);
 			try {
 				await axios({
-					url: `https://pactoverde.mx/wp/wp-json/contact-form-7/v1/contact-forms/5/feedback`,
+					url: `https://susdon4.dreamhosters.com/wp-json/contact-form-7/v1/contact-forms/291/feedback`,
 					headers: {
 						Authorization: `Basic ${TOKEN}`,
 						"Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
@@ -60,13 +72,13 @@ const Contacto = ({ id }) => {
 					}),
 				});
 				setLoading(false);
-				setFormMessage("Tu mensaje ha sido enviado");
+				setFormMessage("Gracias por contactarnos. Tu mensaje ha sido enviado");
 				setForm({ name: "", email: "" });
 				comment.current.innerText = "";
 			} catch (error) {
 				setLoading(false);
 				setFormMessage("Ocurrió un error");
-			}*/
+			}
 		}
 	};
 	return (
@@ -96,7 +108,7 @@ const Contacto = ({ id }) => {
 							className={`absolute h-px border-b border-orange1 left-0 bottom-0 transition-all duration-1000 ease-in-out visible w-full`}
 						></div>
 						{errorFormName !== "" && (
-							<div className="absolute left-0 -bottom-6 text-sm text-red1">
+							<div className="absolute left-0 -bottom-6 text-sm text-orange1">
 								{errorFormName}
 							</div>
 						)}
@@ -115,7 +127,7 @@ const Contacto = ({ id }) => {
 							className={`absolute h-px border-b border-orange1 left-0 bottom-0 transition-all duration-1000 ease-in-out delay-500 visible w-full`}
 						></div>
 						{errorFormMail !== "" && (
-							<div className="absolute left-0 -bottom-6 text-sm text-red1">
+							<div className="absolute left-0 -bottom-6 text-sm text-orange1">
 								{errorFormMail}
 							</div>
 						)}
@@ -144,20 +156,19 @@ const Contacto = ({ id }) => {
 							className={`absolute h-px border-b border-orange1 left-0 bottom-0 transition-all duration-1000 ease-in-out delay-1000 visible w-full`}
 						></div>
 						{errorFormMsj !== "" && (
-							<div className="absolute left-0 -bottom-6 text-sm text-red1">
+							<div className="absolute left-0 -bottom-6 text-sm text-orange1">
 								{errorFormMsj}
 							</div>
 						)}
 					</div>
 					<div className="text-center sm:text-left mt-8 sm:mt-4">
-						<Button text="Enviar" variant="orange" />
-						{/*loading ? (
-							<BeatLoader color="#FF4A53" />
+						{loading ? (
+							<BeatLoader color="#FF8500" />
 						) : formMessage === "" ? (
-							<Button text="Enviar" variant="red" />
+							<Button text="Enviar" variant="orange" />
 						) : (
-							<p className="text-base text-red1 text-xl">{formMessage}</p>
-                        )*/}
+							<p className="text-lg text-orange1 text-xl">{formMessage}</p>
+						)}
 					</div>
 				</div>
 			</form>

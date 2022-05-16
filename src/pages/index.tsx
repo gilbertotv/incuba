@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { graphql, navigate, useStaticQuery } from "gatsby";
 
 import Home from "../components/home/Home";
@@ -12,6 +12,11 @@ import Convocatoria from "../components/home/Convocatoria";
 import Contacto from "../components/home/Contacto";
 
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import useWindowSize, { Size } from "../hooks/useWindowSize";
+
+interface HomeRes {
+	home: Home;
+}
 
 interface Home {
 	urlFile: string;
@@ -62,6 +67,8 @@ const IndexPage = () => {
 	const nosotrasRef = useRef(null);
 	const contactoRef = useRef(null);
 
+	const size: Size = useWindowSize();
+
 	const [homeShow, setHomeShow] = useState({
 		inicio: false,
 		motivacion: false,
@@ -71,7 +78,51 @@ const IndexPage = () => {
 		nosotras: false,
 		contacto: false,
 	});
+	const [greater, setGreater] = useState(false);
+	const [heightEst, setHeightEst] = useState(0);
+	{
+		/*
+	useEffect(() => {
+		const offset = document.querySelector(
+			"#herramientas-container"
+			// @ts-ignore:next-line
+		).offsetWidth;
+		const scroll = document.querySelector(
+			"#herramientas-container"
+		).scrollWidth;
+		setHeightEst(scroll - offset);
+	}, []);
 
+	useEffect(() => {
+		const container = document.querySelector("#herramientas");
+		const onScroll = (e) => {
+			if (
+				window.scrollY > herramientasRef.current.offsetTop &&
+				window.scrollY <
+					herramientasRef.current.offsetTop +
+						herramientasRef.current.clientHeight
+			) {
+				const offset = document.querySelector(
+					"#herramientas-container"
+					// @ts-ignore:next-line
+				).scrollWidth;
+				setGreater(true);
+				const delta = window.scrollY - herramientasRef.current.offsetTop;
+				document.querySelector("#herramientas-container").scrollLeft = delta;
+				console.log(delta);
+				console.log(size);
+				console.log(offset);
+			} else setGreater(false);
+		};
+
+		window.addEventListener("scroll", onScroll);
+
+		return () => {
+			window.removeEventListener("scroll", onScroll);
+		};
+	}, []);
+*/
+	}
 	useIntersectionObserver({
 		refs: [
 			inicioRef,
@@ -115,7 +166,7 @@ const IndexPage = () => {
 		options: {
 			rootMargin: "0px",
 			root: inicioRef.current,
-			threshold: [0.5],
+			threshold: [0.6],
 		},
 	});
 
@@ -123,7 +174,8 @@ const IndexPage = () => {
 		allWpPost: { nodes },
 	} = data;
 
-	const home: Home = nodes.find((node) => node.home !== null).home;
+	const nodeFiltered: HomeRes = nodes.find((node) => node.home !== null);
+	const home = nodeFiltered ? nodeFiltered.home : null;
 
 	return (
 		<Layout title="Home">
@@ -151,34 +203,41 @@ const IndexPage = () => {
 				/>
 			</div>
 			<div
-				data-section-id="herramientas"
 				id="herramientas"
+				className={``}
+				data-section-id="herramientas"
 				ref={herramientasRef}
+				//style={{ height: `${size.width * 3}px` }}
 			>
-				<SectionEstrategia
-					className="bg-beige1"
-					title="Estrategias de intervención"
-					subtitle="Incubadora de organizaciones sin fines de lucro"
-					content="La Incubadora de organizaciones sin fines de lucro es un proceso de acompañamiento de 12 meses para colectivos que se quieren formalizar y organizaciones de reciente creación."
-					button="Conoce más"
-					action={() => navigate("/incubadora")}
-				/>
-				<SectionEstrategia
-					className=""
-					title="Estrategias de intervención"
-					subtitle="Patrocinio ﬁscal"
-					content="Con el programa de Patrocinio Fiscal brindamos la estructura institucional de Incuba a iniciativas comunitarias de alto impacto, que están diseñadas para el cumplimiento de objetivos específicos, acotados en el tiempo."
-					button="Conoce más"
-					action={() => navigate("/estrategias")}
-				/>
-				<SectionEstrategia
-					className="bg-beige1"
-					title="Estrategias de intervención"
-					subtitle="Investigación"
-					content="Realizamos investigaciones y análisis del contexto social, con la finalidad de brindar información útil para el desarrollo proactivo del tercer sector en México."
-					button="Conoce más"
-					action={() => navigate("/investigacion")}
-				/>
+				<div
+					id="herramientas-container"
+					//className={`flex flex-row w-screen overflow-x-auto ${greater ? "fixed top-0 left-0" : ""}`}
+				>
+					<SectionEstrategia
+						className="bg-beige1"
+						title="Estrategias de intervención"
+						subtitle="Incubadora de organizaciones sin fines de lucro"
+						content="La Incubadora de organizaciones sin fines de lucro es un proceso de acompañamiento de 12 meses para colectivos que se quieren formalizar y organizaciones de reciente creación."
+						button="Conoce más"
+						action={() => navigate("/incubadora")}
+					/>
+					<SectionEstrategia
+						className=""
+						title="Estrategias de intervención"
+						subtitle="Patrocinio ﬁscal"
+						content="Con el programa de Patrocinio Fiscal brindamos la estructura institucional de Incuba a iniciativas comunitarias de alto impacto, que están diseñadas para el cumplimiento de objetivos específicos, acotados en el tiempo."
+						button="Conoce más"
+						action={() => navigate("/estrategias")}
+					/>
+					<SectionEstrategia
+						className="bg-beige1"
+						title="Estrategias de intervención"
+						subtitle="Investigación"
+						content="Realizamos investigaciones y análisis del contexto social, con la finalidad de brindar información útil para el desarrollo proactivo del tercer sector en México."
+						button="Conoce más"
+						action={() => navigate("/investigacion")}
+					/>
+				</div>
 			</div>
 			<div data-section-id="convocatoria" ref={convocatoriaRef}>
 				<Convocatoria id="convocatoria" convocatoria={home.convocatoria} />
