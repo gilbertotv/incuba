@@ -82,8 +82,6 @@ const IndexPage = () => {
 
 	useEffect(() => {
 		let delta = 0;
-		let down = true;
-		let y = 0;
 		const onScroll = (e) => {
 			e.preventDefault();
 			if (window.scrollY < herramientasRef.current.offsetTop) {
@@ -98,15 +96,13 @@ const IndexPage = () => {
 				window.scrollY > herramientasRef.current.offsetTop &&
 				delta < size.width * 2
 			) {
-				down = y < window.pageYOffset ? true : false;
-				delta = down ? delta + 10 : delta - 10;
+				delta += 10;
 				document.querySelector("#herramientas-container").scrollLeft = delta;
 				window.scrollTo(delta, herramientasRef.current.offsetTop);
 			}
-			y = window.pageYOffset;
 		};
 
-		window.addEventListener("scroll", onScroll);
+		if (size.width >= 640) window.addEventListener("scroll", onScroll);
 
 		return () => {
 			window.removeEventListener("scroll", onScroll);
