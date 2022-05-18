@@ -7,7 +7,7 @@ const HamburgerMenu = () => {
 
 	return (
 		<button
-			className={`fixed right-6 top-6 z-40 w-10 h-10 focus:outline-none bg-transparent transition duration-200 ease-in-out ${
+			className={`fixed right-6 top-6 md:right-12 lg:right-20 z-40 w-10 h-10 focus:outline-none bg-transparent transition duration-200 ease-in-out ${
 				menuOpen ? "text-white" : "text-black"
 			}`}
 			onClick={() => setMenuOpen(!menuOpen)}

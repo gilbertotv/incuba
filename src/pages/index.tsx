@@ -63,6 +63,7 @@ const IndexPage = () => {
 	const motivacionRef = useRef(null);
 	const resultadosRef = useRef(null);
 	const herramientasRef = useRef(null);
+	const herramientasContRef = useRef(null);
 	const convocatoriaRef = useRef(null);
 	const nosotrasRef = useRef(null);
 	const contactoRef = useRef(null);
@@ -78,49 +79,40 @@ const IndexPage = () => {
 		nosotras: false,
 		contacto: false,
 	});
-	const [greater, setGreater] = useState(false);
-	const [heightEst, setHeightEst] = useState(0);
-	{
-		useEffect(() => {
-			const offset = document.querySelector(
-				"#herramientas-container"
-				// @ts-ignore:next-line
-			).offsetWidth;
-			const scroll = document.querySelector(
-				"#herramientas-container"
-			).scrollWidth;
-			setHeightEst(scroll - offset);
-		}, []);
 
-		useEffect(() => {
-			const container = document.querySelector("#herramientas");
-			const onScroll = (e) => {
-				if (
-					window.scrollY > herramientasRef.current.offsetTop &&
-					window.scrollY <
-						herramientasRef.current.offsetTop +
-							herramientasRef.current.clientHeight
-				) {
-					const offset = document.querySelector(
-						"#herramientas-container"
-						// @ts-ignore:next-line
-					).scrollWidth;
-					setGreater(true);
-					const delta = window.scrollY - herramientasRef.current.offsetTop;
-					document.querySelector("#herramientas-container").scrollLeft = delta;
-					console.log(delta);
-					console.log(size);
-					console.log(offset);
-				} else setGreater(false);
-			};
+	useEffect(() => {
+		let delta = 0;
+		let down = true;
+		let y = 0;
+		const onScroll = (e) => {
+			e.preventDefault();
+			if (window.scrollY < herramientasRef.current.offsetTop) {
+				delta = 0;
+			} else if (
+				window.scrollY >
+				herramientasRef.current.offsetTop + herramientasRef.current.clientHeight
+			) {
+				delta = size.width * 2;
+				document.querySelector("#herramientas-container").scrollLeft = 0;
+			} else if (
+				window.scrollY > herramientasRef.current.offsetTop &&
+				delta < size.width * 2
+			) {
+				down = y < window.pageYOffset ? true : false;
+				delta = down ? delta + 10 : delta - 10;
+				document.querySelector("#herramientas-container").scrollLeft = delta;
+				window.scrollTo(delta, herramientasRef.current.offsetTop);
+			}
+			y = window.pageYOffset;
+		};
 
-			window.addEventListener("scroll", onScroll);
+		window.addEventListener("scroll", onScroll);
 
-			return () => {
-				window.removeEventListener("scroll", onScroll);
-			};
-		}, []);
-	}
+		return () => {
+			window.removeEventListener("scroll", onScroll);
+		};
+	}, [size]);
+
 	useIntersectionObserver({
 		refs: [
 			inicioRef,
@@ -176,7 +168,7 @@ const IndexPage = () => {
 	const home = nodeFiltered ? nodeFiltered.home : null;
 
 	return (
-		<Layout title="Home">
+		<Layout title="Empoderamos organizaciones sociales comprometidas con el desarrollo comunitario.">
 			<div data-section-id="inicio" ref={inicioRef}>
 				<Home id="inicio" intersected={homeShow.inicio} home={home.home} />
 			</div>
@@ -202,16 +194,14 @@ const IndexPage = () => {
 			</div>
 			<div
 				id="herramientas"
-				className={``}
+				className={`relative z-0`}
 				data-section-id="herramientas"
 				ref={herramientasRef}
-				style={{ height: `${size.width * 3}px` }}
 			>
 				<div
 					id="herramientas-container"
-					className={`flex flex-row w-screen overflow-x-auto ${
-						greater ? "fixed top-0 left-0" : ""
-					}`}
+					className={`sm:sticky sm:flex sm:flex-row sm:w-screen sm:overflow-x-auto`}
+					ref={herramientasContRef}
 				>
 					<SectionEstrategia
 						className="bg-beige1"

@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import Header from "./Header";
 import Footer from "./Footer";
 
+import defaultImg from "../../images/layout/thumbincuba.jpg";
+
 interface IProps {
 	title: string;
 	children:
@@ -20,9 +22,9 @@ interface IProps {
 
 const Layout = (props: IProps) => {
 	const { title, ogtitle, description, image, url } = props;
-	const defaultDescr = "";
-	const defaultTitle = "";
-	const defaultImg = "";
+	const defaultDescr =
+		"Somos una organización sin fines de lucro que busca contribuir al fortalecimiento del espacio cívico local en México";
+	const defaultTitle = "Incuba ONG Empoderamos organizaciones sociales comprometidas con el desarrollo comunitario.";
 	return (
 		<>
 			<Helmet>

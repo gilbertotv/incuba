@@ -36,9 +36,7 @@ const Option = ({
 			</Link>
 		</li>
 	) : (
-		<li className="cursor-pointer hover:font-benton400 py-4 sm:py-0">
-			{text}
-		</li>
+		<li className="cursor-pointer hover:font-benton400 py-4 sm:py-0">{text}</li>
 	);
 
 const Menu = () => {
@@ -55,38 +53,38 @@ const Menu = () => {
 					<ul className="flex flex-col sm:justify-between sm:h-full sm:p-24 p-12 text-darkgray1 text-3xl font-benton300">
 						<Option
 							text="Inicio"
-							linkAnchor="/#inicio"
+							link="/#inicio"
 							onClick={() => setMenuOpen(false)}
 						/>
 						<Option
 							text="Motivación"
-							linkAnchor="/#motivacion"
+							link="/#motivacion"
 							onClick={() => setMenuOpen(false)}
 						/>
 						<Option
 							text="Resultados"
-							linkAnchor="/#resultados"
+							link="/#resultados"
 							onClick={() => setMenuOpen(false)}
 						/>
 						<Option
 							text="Herramientas"
-							linkAnchor="/#herramientas"
+							link="/#herramientas"
 							onClick={() => setMenuOpen(false)}
 						/>
 						<Option
 							text="Convocatoria"
-							linkAnchor="/#convocatoria"
+							link="/#convocatoria"
 							onClick={() => setMenuOpen(false)}
 						/>
 						<Option
 							text="Nosotras"
-							linkAnchor="/#nosotras"
+							link="/#nosotras"
 							onClick={() => setMenuOpen(false)}
 						/>
 						<Option
 							text="Contacto"
 							onClick={() => setMenuOpen(false)}
-							linkAnchor="/#contacto"
+							link="/#contacto"
 						/>
 					</ul>
 				</div>

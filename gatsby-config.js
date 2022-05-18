@@ -7,7 +7,7 @@ require("ts-node").register({
 
 module.exports = {
 	siteMetadata: {
-		siteUrl: `https://www.yourdomain.tld`,
+		siteUrl: `https://www.incuba.ong`,
 	},
 	plugins: [
 		"gatsby-plugin-react-helmet",
@@ -25,6 +25,12 @@ module.exports = {
 						password: "Incubaong1108*",
 					},
 				},
+			},
+		},
+		{
+			resolve: "gatsby-plugin-manifest",
+			options: {
+				icon: "src/images/layout/favicon.png",
 			},
 		},
 	],
