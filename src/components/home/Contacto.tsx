@@ -165,7 +165,7 @@ const Contacto = ({ id }) => {
 						{loading ? (
 							<BeatLoader color="#FF8500" />
 						) : formMessage === "" ? (
-							<Button text="Enviar" variant="orange" />
+							<Button type="submit" text="Enviar" variant="orange" />
 						) : (
 							<p className="text-lg text-orange1 text-xl">{formMessage}</p>
 						)}
