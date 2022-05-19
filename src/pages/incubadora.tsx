@@ -168,7 +168,10 @@ const Incubadora = () => {
 	];
 
 	return (
-		<Layout title="Incubadora">
+		<Layout
+			title="Incubadora de organizacionescsin fines de lucro"
+			description="Es un programa de acompañamiento a organizaciones sin fines de lucro durante 12 meses. Abordamos herramientas que les permitan la implementación de procesos de fortalecimiento institucional y recaudación de recursos para procurar su sostenibilidad en el tiempo y potenciar el impacto de su labor."
+		>
 			<div className="w-screen">
 				<div className="container">
 					<div className="flex flex-col md:flex-row mb-16 mt-28 sm:mt-32">
@@ -235,7 +238,7 @@ const Incubadora = () => {
 						</div>
 						<div className="md:order-1 md:w-2/3 md:pr-24">
 							<p className="hidden md:block text-xl text-orange1 font-benton700 sm:text-3xl mb-8">
-								Incubadora de organizaciones <br/> sin fines de lucro
+								Incubadora de organizaciones <br /> sin fines de lucro
 							</p>
 							<p className="text-xl text-darkgray1 sm:text-2xl mb-8 mt-8 md:mt-0">
 								Es un programa de acompañamiento a organizaciones sin fines de

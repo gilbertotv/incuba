@@ -3,9 +3,6 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "../components/layout/Layout";
 
-import Team1 from "../images/nosotras/team1.svg";
-import Consejo1 from "../images/nosotras/consejo1.svg";
-
 interface Img {
 	altText: string;
 	mediaItemUrl: string;
@@ -91,7 +88,7 @@ const Nosotras = () => {
 		.reverse();
 
 	return (
-		<Layout title="Incubadora">
+		<Layout title="Nuestro equipo">
 			<div className="w-screen">
 				<div className="container md:px-24">
 					<div className="flex flex-col md:flex-row mt-28 sm:mt-32">

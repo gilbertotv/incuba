@@ -16,7 +16,10 @@ const Incubadora = () => {
 	});
 
 	return (
-		<Layout title="Incubadora">
+		<Layout
+			title="Estrategias de intervención"
+			description="En Incuba, entendemos que no todos los colectivos que luchan por una mejor comunidad buscan constituirse o trabajar en el largo plazo."
+		>
 			<div className="w-screen">
 				<div className="container">
 					<p className="text-xl text-orange1 font-benton700 sm:text-3xl mb-8 md:mb-16 mt-28 sm:mt-32">

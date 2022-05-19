@@ -33,7 +33,13 @@ const Recurso = ({ pageContext }) => {
 		};
 	};
 	return (
-		<Layout title="Recursos">
+		<Layout
+			title={title}
+			description={headtext}
+			ogtitle={title}
+			image={thumb}
+			url={`https://www.incuba.ong/recursos/${path}`}
+		>
 			<div className="w-screen">
 				<div className="container">
 					<div className="flex flex-col md:flex-row mt-28 sm:mt-32">

@@ -155,7 +155,7 @@ const Investigacion = () => {
 		);
 
 	return (
-		<Layout title="Incubadora">
+		<Layout title="Conoce nuestras investigaciones">
 			<div className="w-screen">
 				<div className="container">
 					<div className="flex flex-col md:flex-row my-28 sm:my-32">
