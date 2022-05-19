@@ -63,12 +63,11 @@ const IndexPage = () => {
 	const motivacionRef = useRef(null);
 	const resultadosRef = useRef(null);
 	const herramientasRef = useRef(null);
-	const herramientasContRef = useRef(null);
 	const convocatoriaRef = useRef(null);
 	const nosotrasRef = useRef(null);
 	const contactoRef = useRef(null);
 
-	const size: Size = useWindowSize();
+	//const size: Size = useWindowSize();
 
 	const [homeShow, setHomeShow] = useState({
 		inicio: false,
@@ -79,7 +78,7 @@ const IndexPage = () => {
 		nosotras: false,
 		contacto: false,
 	});
-
+	/*
 	useEffect(() => {
 		let delta = 0;
 		const onScroll = (e) => {
@@ -107,7 +106,7 @@ const IndexPage = () => {
 		return () => {
 			window.removeEventListener("scroll", onScroll);
 		};
-	}, [size]);
+	}, [size]);*/
 
 	useIntersectionObserver({
 		refs: [
@@ -194,36 +193,30 @@ const IndexPage = () => {
 				data-section-id="herramientas"
 				ref={herramientasRef}
 			>
-				<div
-					id="herramientas-container"
-					className={`sm:sticky sm:flex sm:flex-row sm:w-screen sm:overflow-x-auto`}
-					ref={herramientasContRef}
-				>
-					<SectionEstrategia
-						className="bg-beige1"
-						title="Estrategias de intervención"
-						subtitle="Incubadora de organizaciones sin fines de lucro"
-						content="La Incubadora de organizaciones sin fines de lucro es un proceso de acompañamiento de 12 meses para colectivos que se quieren formalizar y organizaciones de reciente creación."
-						button="Conoce más"
-						action={() => navigate("/incubadora")}
-					/>
-					<SectionEstrategia
-						className=""
-						title="Estrategias de intervención"
-						subtitle="Patrocinio ﬁscal"
-						content="Con el programa de Patrocinio Fiscal brindamos la estructura institucional de Incuba a iniciativas comunitarias de alto impacto, que están diseñadas para el cumplimiento de objetivos específicos, acotados en el tiempo."
-						button="Conoce más"
-						action={() => navigate("/estrategias")}
-					/>
-					<SectionEstrategia
-						className="bg-beige1"
-						title="Estrategias de intervención"
-						subtitle="Investigación"
-						content="Realizamos investigaciones y análisis del contexto social, con la finalidad de brindar información útil para el desarrollo proactivo del tercer sector en México."
-						button="Conoce más"
-						action={() => navigate("/investigacion")}
-					/>
-				</div>
+				<SectionEstrategia
+					className="bg-beige1"
+					title="Estrategias de intervención"
+					subtitle="Incubadora de organizaciones sin fines de lucro"
+					content="La Incubadora de organizaciones sin fines de lucro es un proceso de acompañamiento de 12 meses para colectivos que se quieren formalizar y organizaciones de reciente creación."
+					button="Conoce más"
+					action={() => navigate("/incubadora")}
+				/>
+				<SectionEstrategia
+					className=""
+					title="Estrategias de intervención"
+					subtitle="Patrocinio ﬁscal"
+					content="Con el programa de Patrocinio Fiscal brindamos la estructura institucional de Incuba a iniciativas comunitarias de alto impacto, que están diseñadas para el cumplimiento de objetivos específicos, acotados en el tiempo."
+					button="Conoce más"
+					action={() => navigate("/estrategias")}
+				/>
+				<SectionEstrategia
+					className="bg-beige1"
+					title="Estrategias de intervención"
+					subtitle="Investigación"
+					content="Realizamos investigaciones y análisis del contexto social, con la finalidad de brindar información útil para el desarrollo proactivo del tercer sector en México."
+					button="Conoce más"
+					action={() => navigate("/investigacion")}
+				/>
 			</div>
 			<div data-section-id="convocatoria" ref={convocatoriaRef}>
 				<Convocatoria id="convocatoria" convocatoria={home.convocatoria} />
