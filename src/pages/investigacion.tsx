@@ -161,7 +161,7 @@ const Investigacion = () => {
 					<div className="flex flex-col md:flex-row my-28 sm:my-32">
 						<div className="md:order-2 md:w-1/3">
 							<p className="block md:hidden text-xl text-orange1 font-benton700 sm:text-3xl">
-								Incubadora de organizaciones sin fines de lucro
+								Conoce nuestras investigaciones
 							</p>
 							<div className="flex h-full items-center">
 								<div className="relative w-full h-full">
