@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Header from "./Header";
 import Footer from "./Footer";
 
-import defaultImg from "../../images/layout/thumbincuba.jpg";
+//import defaultImg from "../../images/layout/thumbincuba.jpg";
 
 interface IProps {
 	title: string;
@@ -22,9 +22,12 @@ interface IProps {
 
 const Layout = (props: IProps) => {
 	const { title, ogtitle, description, image, url } = props;
+	const defaultImg =
+		"https://susdon4.dreamhosters.com/wp-content/uploads/2022/06/thumbincuba.jpg";
 	const defaultDescr =
 		"Somos una organización sin fines de lucro que busca contribuir al fortalecimiento del espacio cívico local en México";
-	const defaultTitle = "Incuba ONG Empoderamos organizaciones sociales comprometidas con el desarrollo comunitario.";
+	const defaultTitle =
+		"Incuba ONG Empoderamos organizaciones sociales comprometidas con el desarrollo comunitario.";
 	return (
 		<>
 			<Helmet>

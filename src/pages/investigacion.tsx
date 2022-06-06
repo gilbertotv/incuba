@@ -66,12 +66,13 @@ const InvestigacionButtons = ({ title, btn1Text, url1, btn2Text, url2 }) => (
 		<ul className="pl-4 list-disc marker:text-purple1 marker:font-bold marker:text-3xl">
 			<li className="text-xl sm:text-2xl mb-8 mt-8">{title}</li>
 		</ul>
-		<div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
+		<div className="flex flex-col sm:flex-row">
 			{btn1Text && (
 				<Button
 					text={btn1Text}
 					variant="orange"
 					action={() => window.open(url1)}
+					className="mb-8 sm:mr-16 sm:mb-0"
 				/>
 			)}
 			{btn2Text && (

@@ -24,7 +24,7 @@ const Contacto = ({ id }) => {
 	const comment = useRef(null);
 	const TOKEN =
 		typeof window !== "undefined" &&
-		window.btoa(`daniela.castro:P4ct0V3rd32022`);
+		window.btoa(`susdon4_plj356:Incubaong1108*`);
 
 	const handleChanges = (e) => {
 		e.preventDefault();
